@@ -126,6 +126,7 @@
             new Swiper(casesEl, {
                 slidesPerView: 1.05,
                 spaceBetween: 16,
+                loop: true,
                 grabCursor: true,
                 pagination: {
                     el: '.cases-pagination',
@@ -137,11 +138,15 @@
                 },
                 breakpoints: {
                     768: {
-                        slidesPerView: 2,
+                        slidesPerView: 1.8,
                         spaceBetween: 20
                     },
                     1024: {
-                        slidesPerView: 3,
+                        slidesPerView: 2.4,
+                        spaceBetween: 24
+                    },
+                    1280: {
+                        slidesPerView: 2.8,
                         spaceBetween: 24
                     }
                 }
@@ -153,6 +158,7 @@
             new Swiper(projectsEl, {
                 slidesPerView: 1.05,
                 spaceBetween: 16,
+                loop: true,
                 grabCursor: true,
                 pagination: {
                     el: '.projects-pagination',
@@ -164,11 +170,15 @@
                 },
                 breakpoints: {
                     768: {
-                        slidesPerView: 2,
+                        slidesPerView: 1.8,
                         spaceBetween: 20
                     },
                     1024: {
-                        slidesPerView: 3,
+                        slidesPerView: 2.4,
+                        spaceBetween: 24
+                    },
+                    1280: {
+                        slidesPerView: 2.8,
                         spaceBetween: 24
                     }
                 }
