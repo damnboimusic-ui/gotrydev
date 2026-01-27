@@ -2081,6 +2081,31 @@ body.home .wide-container {
         width: 18px;
         margin-left: -9px;
     }
+
+    .header-side .hamburger-menu {
+        gap: 5px;
+    }
+
+    .header-side .hamburger-menu div {
+        position: static;
+        margin-left: 0;
+        border: none;
+        height: 2px;
+        background: #1D1D1D;
+    }
+
+.header-side .hamburger-menu {
+    flex-direction: column;
+    gap: 6px;
+}
+
+.header-side .hamburger-menu div {
+    position: static;
+    margin-left: 0;
+    border: none;
+    height: 2px;
+    background: #1D1D1D;
+}
     
     .header-side .hamburger-menu div:nth-child(1) {
         top: 14px;
@@ -2347,6 +2372,19 @@ body.home .wide-container {
     background: #1D1D1D;
     border-radius: 0;
     box-sizing: border-box; /* Include border in width/height calculations */
+}
+
+.header-side .hamburger-menu {
+    flex-direction: column;
+    gap: 6px;
+}
+
+.header-side .hamburger-menu div {
+    position: static;
+    margin-left: 0;
+    border: none;
+    height: 2px;
+    background: #1D1D1D;
 }
 
 .header-side .hamburger-menu div:nth-child(1) {
