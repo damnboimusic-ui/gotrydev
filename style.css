@@ -153,6 +153,7 @@ body {
 
 body.home {
     background: #f5f3f7; /* Light purple/grey background like Konpo */
+    overflow-x: hidden;
 }
 
 /* Скрываем стандартные header и footer */
@@ -629,7 +630,7 @@ body.home .hero-section {
 body.home .hero-section .wide-container,
 body.home .wide-container {
     width: 100%;
-    max-width: none; /* No max-width constraint */
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
     /* Left padding: only logo padding (clamp(16px, 2vw, 24px)) - main-content margin-left handles sidebar offset */
@@ -2136,6 +2137,7 @@ body.home .wide-container {
     
     /* Main content - adjust for smaller sidebar */
     .main-content {
+        width: calc(100% - 40px);
         margin-left: 40px;
         margin-top: 40px;
     }
@@ -2287,6 +2289,7 @@ body.home .wide-container {
     width: 100%;
     position: static;
     overflow: visible;
+    overflow-x: hidden;
 }
 
 /* Left Sidebar - Fixed left side, 54px width, full height from top */
@@ -2514,7 +2517,7 @@ body.home .wide-container {
 /* Main Content Area - Right Side (Working Area) - Starts after sidebar and header */
 .main-content {
     flex: 1;
-    width: auto; /* Auto width - margin-left and right edge handle it */
+    width: calc(100% - 54px);
     min-height: auto;
     margin-left: 54px; /* Space for sidebar */
     margin-right: 0; /* No right margin - stretch to edge */
@@ -2524,27 +2527,117 @@ body.home .wide-container {
     padding-right: 0; /* No padding - wide-container handles it */
     position: static;
     box-sizing: border-box;
-    overflow: visible;
+    overflow-x: hidden;
+}
+
+.site-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 998;
+}
+
+.site-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(360px, 86vw);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: stretch;
+}
+
+.site-menu-panel {
+    width: 100%;
+    background: #f5f3f7;
+    border-left: 1px solid #1D1D1D;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.site-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-menu-kicker {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #7C7A80;
+}
+
+.site-menu-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid #1D1D1D;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #1D1D1D;
+}
+
+.site-menu-links {
+    display: grid;
+    gap: 18px;
+}
+
+.site-menu-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1D1D1D;
+    text-decoration: none;
+}
+
+.site-menu-footer {
+    margin-top: auto;
+    display: grid;
+    gap: 16px;
+}
+
+.site-menu-note {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6B6A6F;
+}
+
+.site-menu-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid #1D1D1D;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1D1D1D;
+    text-decoration: none;
+}
+
+body.menu-open .site-menu {
+    transform: translateX(0);
+}
+
+body.menu-open .site-menu-backdrop {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Header styles moved to Konpo section above - no wide-container in header anymore */
 
 /* Hero section - content boundaries handled by body.home .wide-container above */
-
-/* Responsive - Hide sidebar on mobile */
-@media (max-width: 768px) {
-    .main-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .header-side {
-        display: none;
-    }
-    
-    .main-content {
-        grid-column: 1;
-    }
-}
-
 
 /* All animations removed - elements are always visible and static */

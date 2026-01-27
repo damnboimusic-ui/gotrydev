@@ -113,6 +113,43 @@
     });
 })();
 
+// Minimal menu toggle
+(function() {
+    const menuBtn = document.getElementById('hamburger-menu');
+    const menu = document.getElementById('site-menu');
+    const backdrop = document.getElementById('site-menu-backdrop');
+    const closeBtn = document.getElementById('site-menu-close');
+    const menuLinks = menu ? menu.querySelectorAll('a[href^="#"]') : [];
+
+    if (!menuBtn || !menu || !backdrop || !closeBtn) return;
+
+    function openMenu() {
+        document.body.classList.add('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menu.setAttribute('aria-hidden', 'false');
+        backdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMenu() {
+        document.body.classList.remove('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    menuBtn.addEventListener('click', function() {
+        if (document.body.classList.contains('menu-open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    closeBtn.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+    menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+})();
+
 // Swiper sliders for cases and projects
 (function() {
     function initSwipers() {

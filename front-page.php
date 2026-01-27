@@ -12,7 +12,7 @@ get_header();
     <!-- Left Sidebar - Contains Hamburger and Scroll Indicator -->
     <div class="header-side" id="header-side">
         <!-- Hamburger Menu Button - Top of Sidebar -->
-        <button class="hamburger-menu" id="hamburger-menu" aria-label="Меню">
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-menu">
             <div></div>
             <div></div>
             <div></div>
@@ -54,6 +54,29 @@ get_header();
         <!-- Header divider line - positioned at bottom of entire header (top-nav) -->
         <div class="header-divider"></div>
     </header>
+
+    <div class="site-menu-backdrop" id="site-menu-backdrop" aria-hidden="true"></div>
+    <aside class="site-menu" id="site-menu" aria-hidden="true">
+        <div class="site-menu-panel">
+            <div class="site-menu-header">
+                <span class="site-menu-kicker">Меню</span>
+                <button class="site-menu-close" id="site-menu-close" aria-label="Закрити меню">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <nav class="site-menu-links">
+                <a href="#hero" class="site-menu-link">Головна</a>
+                <a href="#services" class="site-menu-link">Послуги</a>
+                <a href="#contact" class="site-menu-link">Контакти</a>
+            </nav>
+            <div class="site-menu-footer">
+                <span class="site-menu-note">Працюємо з фаундерами та командами, що люблять дизайн.</span>
+                <a href="#contact" class="site-menu-cta">Почати проєкт</a>
+            </div>
+        </div>
+    </aside>
     
     <!-- Main Content Area - Right Side (Working Area) - Starts below header -->
     <div class="main-content">
@@ -295,7 +318,7 @@ get_header();
         </section>
         
         <!-- Services Section - Moved outside hero-section for sticky to work -->
-        <section class="services-section">
+        <section class="services-section" id="services">
             <div class="wide-container">
                 <h2 class="services-title">Послуги</h2>
                 <div class="services-cards-stack">
