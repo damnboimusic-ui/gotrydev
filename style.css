@@ -152,8 +152,7 @@ body {
 }
 
 body.home {
-    background: #f5f3f7; /* Light purple/grey background like Konpo */
-    overflow-x: hidden;
+    background: #f5f3f7;
 }
 
 /* Скрываем стандартные header и footer */
@@ -630,7 +629,7 @@ body.home .hero-section {
 body.home .hero-section .wide-container,
 body.home .wide-container {
     width: 100%;
-    max-width: 100%;
+    max-width: calc(100vw - 54px);
     margin-left: 0;
     margin-right: 0;
     /* Left padding: only logo padding (clamp(16px, 2vw, 24px)) - main-content margin-left handles sidebar offset */
@@ -1288,7 +1287,7 @@ body.home .wide-container {
     padding-left: 0;
     padding-right: 0;
     box-sizing: border-box;
-    position: static;
+    position: relative;
     overflow: visible;
     display: block;
 }
@@ -1316,13 +1315,14 @@ body.home .wide-container {
 }
 
 .services-cards-stack {
-    position: static;
+    position: relative;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding-bottom: 200px;
     overflow: visible;
     display: block;
+    isolation: isolate;
 }
 
 .service-card {
@@ -1823,6 +1823,7 @@ body.home .wide-container {
     body.home .wide-container {
         padding-left: 12px;
         padding-right: 12px;
+        max-width: calc(100vw - 40px);
     }
     
     .projects-grid {
@@ -2137,7 +2138,8 @@ body.home .wide-container {
     
     /* Main content - adjust for smaller sidebar */
     .main-content {
-        width: calc(100% - 40px);
+        width: auto;
+        max-width: calc(100vw - 40px);
         margin-left: 40px;
         margin-top: 40px;
     }
@@ -2289,7 +2291,6 @@ body.home .wide-container {
     width: 100%;
     position: static;
     overflow: visible;
-    overflow-x: hidden;
 }
 
 /* Left Sidebar - Fixed left side, 54px width, full height from top */
@@ -2517,7 +2518,7 @@ body.home .wide-container {
 /* Main Content Area - Right Side (Working Area) - Starts after sidebar and header */
 .main-content {
     flex: 1;
-    width: calc(100% - 54px);
+    width: auto;
     min-height: auto;
     margin-left: 54px; /* Space for sidebar */
     margin-right: 0; /* No right margin - stretch to edge */
@@ -2527,7 +2528,8 @@ body.home .wide-container {
     padding-right: 0; /* No padding - wide-container handles it */
     position: static;
     box-sizing: border-box;
-    overflow-x: hidden;
+    max-width: calc(100vw - 54px);
+    overflow: visible;
 }
 
 .site-menu-backdrop {
