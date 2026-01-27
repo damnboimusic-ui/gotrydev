@@ -82,12 +82,62 @@ get_header();
                     <p class="hero-description">Gotry is a plug-and-play crew of seasoned designers, for CXOs that know design is an unfair advantage.</p>
                 </div>
                 
+                <!-- Cases Intro Blocks -->
+                <div class="cases-intro">
+                    <div class="cases-intro-copy">
+                        <span class="cases-kicker">Кейси</span>
+                        <h2 class="cases-title">Сміливі запуски, чистий UX, швидкі перемоги.</h2>
+                    </div>
+                    <div class="cases-intro-actions">
+                        <p class="cases-note">Показуємо роботи, де дизайн вирішує бізнес-задачі та дає результат у цифрах.</p>
+                        <a href="#contact" class="cases-cta">
+                            <span>Порахувати проект</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M7 7h10v10"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="cases-gallery">
+                    <div class="case-panel case-panel-1">
+                        <span class="case-panel-tag">Fintech</span>
+                        <span class="case-panel-title">Payments Experience</span>
+                        <span class="case-panel-caption">KYC, картки, миттєві перекази</span>
+                    </div>
+                    <div class="case-panel case-panel-2">
+                        <span class="case-panel-tag">Health</span>
+                        <span class="case-panel-title">Care Platform</span>
+                        <span class="case-panel-caption">Емоційна підтримка + data UX</span>
+                    </div>
+                    <div class="case-panel case-panel-3">
+                        <span class="case-panel-tag">SaaS</span>
+                        <span class="case-panel-title">Growth Dashboard</span>
+                        <span class="case-panel-caption">Активація, retention, churn</span>
+                    </div>
+                </div>
+
+                <div class="cases-metrics">
+                    <div class="cases-metric">
+                        <span class="cases-metric-value">+42%</span>
+                        <span class="cases-metric-label">Activation uplift</span>
+                    </div>
+                    <div class="cases-metric">
+                        <span class="cases-metric-value">6 тижнів</span>
+                        <span class="cases-metric-label">До першого релізу</span>
+                    </div>
+                    <div class="cases-metric">
+                        <span class="cases-metric-value">3.2x</span>
+                        <span class="cases-metric-label">Виручка з продукту</span>
+                    </div>
+                </div>
+                
                 <!-- Project Cards -->
                 <div class="projects-section">
                     <div class="projects-divider"></div>
                     <div class="projects-grid">
                         <!-- Card 1: Surge (Gradient) -->
-                        <div class="project-card project-card-gradient">
+                        <div class="project-card project-card-gradient project-card-image-1">
                             <div class="project-card-content project-card-top-right">
                                 <span class="project-type">Brand • Site • System</span>
                                 <span class="project-name">surge<sup class="project-sup">AI</sup></span>
@@ -98,7 +148,7 @@ get_header();
                         </div>
                         
                         <!-- Card 2: ComPsych (White) -->
-                        <div class="project-card project-card-white">
+                        <div class="project-card project-card-white project-card-image-2">
                             <div class="project-card-content project-card-top-right">
                                 <span class="project-type project-type-dark">Brand</span>
                                 <div class="project-logo-wrapper">
@@ -111,7 +161,7 @@ get_header();
                         </div>
                         
                         <!-- Card 3: amp (Dark) -->
-                        <div class="project-card project-card-dark">
+                        <div class="project-card project-card-dark project-card-image-3">
                             <div class="project-card-content project-card-top-right">
                                 <span class="project-type">Product</span>
                                 <svg class="project-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
