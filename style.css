@@ -816,10 +816,71 @@ body.home .wide-container {
 }
 
 .cases-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    width: 100%;
     margin-bottom: 32px;
+}
+
+.cases-swiper,
+.projects-swiper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.cases-swiper .swiper-wrapper,
+.projects-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.cases-swiper .swiper-slide,
+.projects-swiper .swiper-slide {
+    height: auto;
+}
+
+.swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.swiper-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid #1D1D1D;
+    background: transparent;
+    color: #1D1D1D;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.swiper-btn:hover {
+    background: #1D1D1D;
+    color: #fff;
+}
+
+.swiper-pagination {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #C7C5CB;
+    opacity: 1;
+    margin: 0 !important;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background: #1D1D1D;
+    width: 22px;
+    border-radius: 999px;
 }
 
 .case-panel {
@@ -1768,20 +1829,80 @@ body.home .wide-container {
         gap: 20px;
     }
 
+    .hero-main-title {
+        margin-bottom: 20px;
+    }
+
+    .title-line-1 {
+        font-size: clamp(34px, 10vw, 56px);
+        letter-spacing: -1.4px;
+    }
+
+    .title-line-2 {
+        font-size: clamp(28px, 8vw, 44px);
+        letter-spacing: -1px;
+    }
+
     .cases-intro {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 12px 0 20px;
     }
 
+    .cases-intro-actions {
+        justify-items: stretch;
+    }
+
+    .cases-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
     .cases-gallery {
-        grid-template-columns: 1fr;
-        gap: 16px;
         margin-bottom: 20px;
     }
 
     .case-panel {
         min-height: 200px;
+    }
+
+    .cases-metric-value {
+        font-size: 20px;
+    }
+
+    .cases-metric-label {
+        letter-spacing: 0.12em;
+    }
+
+    .project-card {
+        height: 360px;
+    }
+
+    .project-card-top-right {
+        top: 16px;
+        right: 16px;
+    }
+
+    .project-card-bottom-left {
+        bottom: 16px;
+        left: 16px;
+    }
+
+    .project-name-large {
+        font-size: 20px;
+    }
+
+    .project-name {
+        font-size: 16px;
+    }
+
+    .swiper-controls {
+        margin-top: 12px;
+    }
+
+    .swiper-btn {
+        width: 36px;
+        height: 36px;
     }
 
     .cases-metrics {
@@ -2182,6 +2303,7 @@ body.home .wide-container {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    border-right: 1px solid #1D1D1D;
     padding-top: 0;
     margin-top: 0;
     opacity: 1; /* Always visible - no animation */
@@ -2192,7 +2314,7 @@ body.home .wide-container {
     width: 54px;
     height: 54px;
     position: relative;
-    border-right: 1px solid #1D1D1D; /* Right border to connect with header divider */
+    border-right: none;
     border-top: none;
     border-left: none;
     border-bottom: none; /* No bottom border - header divider handles that */
@@ -2334,13 +2456,7 @@ body.home .wide-container {
 
 /* Right vertical line on sidebar that goes down from hamburger (starts at 54px from top) */
 .sidebar-right-line {
-    position: absolute;
-    right: 0;
-    top: 54px; /* Start below hamburger (54px height) */
-    width: 1px;
-    height: calc(100vh - 54px); /* Full height minus hamburger height */
-    background: #1D1D1D;
-    z-index: 1;
+    display: none;
 }
 
 /* Old hamburger styles removed - hamburger is now in header-side, styled above */

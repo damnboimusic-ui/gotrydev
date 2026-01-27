@@ -25,12 +25,20 @@ function gotry_enqueue_styles() {
         array(),
         '1.2.3'
     );
+
+    // Swiper styles
+    wp_enqueue_style(
+        'swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+        array(),
+        '11.0.0'
+    );
     
     // Основні стилі теми
     wp_enqueue_style(
         'gotry-style',
         get_stylesheet_uri(),
-        array('google-fonts-manrope', 'lenis-css'),
+        array('google-fonts-manrope', 'lenis-css', 'swiper'),
         $style_version
     );
     
@@ -42,6 +50,15 @@ function gotry_enqueue_styles() {
         '1.2.3',
         true
     );
+
+    // Swiper JS
+    wp_enqueue_script(
+        'swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+        array(),
+        '11.0.0',
+        true
+    );
     
     // Main JS для Lenis ініціалізації (для всіх сторінок)
     $main_js_version = file_exists(get_stylesheet_directory() . '/assets/js/main.js')
@@ -51,7 +68,7 @@ function gotry_enqueue_styles() {
     wp_enqueue_script(
         'gotry-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        array('lenis'),
+        array('lenis', 'swiper'),
         $main_js_version,
         true
     );
@@ -96,4 +113,3 @@ add_filter('show_admin_bar', function($show) {
     }
     return $show;
 });
-

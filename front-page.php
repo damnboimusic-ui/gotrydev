@@ -12,7 +12,7 @@ get_header();
     <!-- Left Sidebar - Contains Hamburger and Scroll Indicator -->
     <div class="header-side" id="header-side">
         <!-- Hamburger Menu Button - Top of Sidebar -->
-        <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Меню">
             <div></div>
             <div></div>
             <div></div>
@@ -63,9 +63,9 @@ get_header();
                 <div class="hero-content">
                     <!-- Main Title -->
                     <h1 class="hero-main-title">
-                        <span class="title-line-1">Full-Stack Design</span>
+                        <span class="title-line-1">Дизайн повного циклу</span>
                         <span class="title-line-2">
-                            <span class="strikethrough-text">Agency</span> Studio.
+                            <span class="strikethrough-text">Агенція</span> Студія.
                         </span>
                     </h1>
                     
@@ -79,7 +79,7 @@ get_header();
                     </div>
                     
                     <!-- Description - centered below globe -->
-                    <p class="hero-description">Gotry is a plug-and-play crew of seasoned designers, for CXOs that know design is an unfair advantage.</p>
+                    <p class="hero-description">Gotry — це plug-and-play команда досвідчених дизайнерів для CXO, які знають, що дизайн — це несправедлива перевага.</p>
                 </div>
                 
                 <!-- Cases Intro Blocks -->
@@ -91,7 +91,7 @@ get_header();
                     <div class="cases-intro-actions">
                         <p class="cases-note">Показуємо роботи, де дизайн вирішує бізнес-задачі та дає результат у цифрах.</p>
                         <a href="#contact" class="cases-cta">
-                            <span>Порахувати проект</span>
+                            <span>Порахувати проєкт</span>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M7 17L17 7M7 7h10v10"/>
                             </svg>
@@ -99,28 +99,49 @@ get_header();
                     </div>
                 </div>
                 
-                <div class="cases-gallery">
-                    <div class="case-panel case-panel-1">
-                        <span class="case-panel-tag">Fintech</span>
-                        <span class="case-panel-title">Payments Experience</span>
-                        <span class="case-panel-caption">KYC, картки, миттєві перекази</span>
+                <div class="cases-gallery swiper cases-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="case-panel case-panel-1">
+                                <span class="case-panel-tag">Фінтех</span>
+                                <span class="case-panel-title">Платіжний досвід</span>
+                                <span class="case-panel-caption">KYC, картки, миттєві перекази</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="case-panel case-panel-2">
+                                <span class="case-panel-tag">Медицина</span>
+                                <span class="case-panel-title">Платформа турботи</span>
+                                <span class="case-panel-caption">Емоційна підтримка + data UX</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="case-panel case-panel-3">
+                                <span class="case-panel-tag">SaaS</span>
+                                <span class="case-panel-title">Дашборд зростання</span>
+                                <span class="case-panel-caption">Активація, утримання, відтік</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="case-panel case-panel-2">
-                        <span class="case-panel-tag">Health</span>
-                        <span class="case-panel-title">Care Platform</span>
-                        <span class="case-panel-caption">Емоційна підтримка + data UX</span>
-                    </div>
-                    <div class="case-panel case-panel-3">
-                        <span class="case-panel-tag">SaaS</span>
-                        <span class="case-panel-title">Growth Dashboard</span>
-                        <span class="case-panel-caption">Активація, retention, churn</span>
+                    <div class="swiper-controls">
+                        <button class="swiper-btn cases-prev" aria-label="Попередній кейс">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <div class="swiper-pagination cases-pagination"></div>
+                        <button class="swiper-btn cases-next" aria-label="Наступний кейс">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
                 <div class="cases-metrics">
                     <div class="cases-metric">
                         <span class="cases-metric-value">+42%</span>
-                        <span class="cases-metric-label">Activation uplift</span>
+                        <span class="cases-metric-label">Зростання активації</span>
                     </div>
                     <div class="cases-metric">
                         <span class="cases-metric-value">6 тижнів</span>
@@ -135,40 +156,61 @@ get_header();
                 <!-- Project Cards -->
                 <div class="projects-section">
                     <div class="projects-divider"></div>
-                    <div class="projects-grid">
-                        <!-- Card 1: Surge (Gradient) -->
-                        <div class="project-card project-card-gradient project-card-image-1">
-                            <div class="project-card-content project-card-top-right">
-                                <span class="project-type">Brand • Site • System</span>
-                                <span class="project-name">surge<sup class="project-sup">AI</sup></span>
-                            </div>
-                            <div class="project-card-bottom-left">
-                                <span class="project-name project-name-large">ChatGPT</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 2: ComPsych (White) -->
-                        <div class="project-card project-card-white project-card-image-2">
-                            <div class="project-card-content project-card-top-right">
-                                <span class="project-type project-type-dark">Brand</span>
-                                <div class="project-logo-wrapper">
-                                    <svg class="project-logo" width="32" height="32" viewBox="0 0 32 32" fill="#2563eb">
-                                        <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 24c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10zm0-16c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z"/>
-                                    </svg>
+                    <div class="projects-swiper swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <!-- Card 1: Surge (Gradient) -->
+                                <div class="project-card project-card-gradient project-card-image-1">
+                                    <div class="project-card-content project-card-top-right">
+                                        <span class="project-type">Бренд • Сайт • Система</span>
+                                        <span class="project-name">surge<sup class="project-sup">AI</sup></span>
+                                    </div>
+                                    <div class="project-card-bottom-left">
+                                        <span class="project-name project-name-large">ChatGPT</span>
+                                    </div>
                                 </div>
-                                <span class="project-name project-name-dark">ComPsych</span>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <!-- Card 2: ComPsych (White) -->
+                                <div class="project-card project-card-white project-card-image-2">
+                                    <div class="project-card-content project-card-top-right">
+                                        <span class="project-type project-type-dark">Бренд</span>
+                                        <div class="project-logo-wrapper">
+                                            <svg class="project-logo" width="32" height="32" viewBox="0 0 32 32" fill="#2563eb">
+                                                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 24c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10zm0-16c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="project-name project-name-dark">ComPsych</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <!-- Card 3: amp (Dark) -->
+                                <div class="project-card project-card-dark project-card-image-3">
+                                    <div class="project-card-content project-card-top-right">
+                                        <span class="project-type">Продукт</span>
+                                        <svg class="project-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                        </svg>
+                                        <span class="project-name">amp</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- Card 3: amp (Dark) -->
-                        <div class="project-card project-card-dark project-card-image-3">
-                            <div class="project-card-content project-card-top-right">
-                                <span class="project-type">Product</span>
-                                <svg class="project-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        <div class="swiper-controls">
+                            <button class="swiper-btn projects-prev" aria-label="Попередній проєкт">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 18l-6-6 6-6"/>
                                 </svg>
-                                <span class="project-name">amp</span>
-                            </div>
+                            </button>
+                            <div class="swiper-pagination projects-pagination"></div>
+                            <button class="swiper-btn projects-next" aria-label="Наступний проєкт">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -176,19 +218,19 @@ get_header();
                 <!-- About/Credibility Section -->
                 <section class="about-credibility-section">
                     <div class="about-headline">
-                        <span class="headline-main">Lean, fast, and ruthless about world-class standards, Gotry is built for companies that define categor</span><span class="headline-fade">ies.</span>
+                        <span class="headline-main">Лаконічні, швидкі й безкомпромісні до стандартів світового рівня, Gotry створено для компаній, що формують категор</span><span class="headline-fade">ії.</span>
                     </div>
-                    <div class="about-tagline">The design studio with actual agency.</div>
+                    <div class="about-tagline">Дизайн-студія з реальною агенцією.</div>
                     <div class="about-divider"></div>
                     <div class="about-content-wrapper">
                         <div class="about-content">
                             <p class="about-paragraph">
-                                Since 2020, I've partnered with <span class="about-link">Startups</span>, <span class="about-link">Agencies</span>, <span class="about-link">Freelance Clients</span>, handled full-code development for <span class="about-link">SaaS Products</span>, designed and built <span class="about-link">Brand Systems</span>, created products with <span class="about-link">No-code Tools</span> and <span class="about-link">Custom Solutions</span>.
+                                З 2020 року я працюю зі <span class="about-link">стартапами</span>, <span class="about-link">агенціями</span>, <span class="about-link">фриланс-клієнтами</span>, роблю повний цикл розробки для <span class="about-link">SaaS-продуктів</span>, створюю <span class="about-link">бренд-системи</span>, будую продукти на <span class="about-link">no-code інструментах</span> та <span class="about-link">кастомних рішеннях</span>.
                             </p>
                             <p class="about-paragraph">
-                                Actively used by clients and widely loved by my collective mothers, my work has been recognized by the folks from <span class="about-link">Awwwards</span> and <span class="about-link">CSS Design Awards</span>, survived the critics at <span class="about-link">Product Hunt</span>, talked about in the obscure corners of <span class="about-link">HackerNews</span>, featured on <span class="about-link">Behance</span> and smiled from the top of <span class="about-link">Dribbble</span>.
+                                Мої проєкти активно використовують клієнти й щиро люблять мої колективні мами, а ще їх відзначали <span class="about-link">Awwwards</span> і <span class="about-link">CSS Design Awards</span>, пережили критику на <span class="about-link">Product Hunt</span>, згадували в куточках <span class="about-link">HackerNews</span>, публікували на <span class="about-link">Behance</span> та піднімали на вершину <span class="about-link">Dribbble</span>.
                             </p>
-                            <p class="about-paragraph-short">I live at the intersection of design, code and product.</p>
+                            <p class="about-paragraph-short">Живу на перетині дизайну, коду та продукту.</p>
                         </div>
                         <div class="about-logos">
                         <!-- FWA Logo -->
@@ -255,14 +297,14 @@ get_header();
         <!-- Services Section - Moved outside hero-section for sticky to work -->
         <section class="services-section">
             <div class="wide-container">
-                <h2 class="services-title">Services</h2>
+                <h2 class="services-title">Послуги</h2>
                 <div class="services-cards-stack">
                     <!-- Card 1: Product Design -->
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="service-card-header">
-                                <h3 class="service-card-title">Product Design</h3>
-                                <button class="service-card-action-btn" aria-label="Hire us">
+                                <h3 class="service-card-title">Продуктовий дизайн</h3>
+                                <button class="service-card-action-btn" aria-label="Замовити">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -270,7 +312,7 @@ get_header();
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
-                                <p class="service-card-description">Good design gets downloads. Great design gets daily use. We design software products that build habits and drive growth, at scale.</p>
+                                <p class="service-card-description">Хороший дизайн дає завантаження. Великий дизайн дає щоденне використання. Ми проєктуємо цифрові продукти, що формують звички й ростять бізнес.</p>
                                 <div class="service-card-footer">
                                     <div class="service-card-pattern">
                                         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -305,8 +347,8 @@ get_header();
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="service-card-header">
-                                <h3 class="service-card-title">Design Systems</h3>
-                                <button class="service-card-action-btn" aria-label="Hire us">
+                                <h3 class="service-card-title">Дизайн-системи</h3>
+                                <button class="service-card-action-btn" aria-label="Замовити">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -314,7 +356,7 @@ get_header();
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
-                                <p class="service-card-description">Growth creates chaos and inefficiencies. We build scalable design systems that put all teams on the same page so you have one source of truth, not ten sources of wrong.</p>
+                                <p class="service-card-description">Зростання створює хаос та неефективність. Ми будуємо масштабовані дизайн-системи, які об’єднують команди й дають одне джерело правди замість десяти помилок.</p>
                                 <div class="service-card-footer">
                                     <div class="service-card-pattern">
                                         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -349,8 +391,8 @@ get_header();
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="service-card-header">
-                                <h3 class="service-card-title">Brand Design</h3>
-                                <button class="service-card-action-btn" aria-label="Hire us">
+                                <h3 class="service-card-title">Бренд-дизайн</h3>
+                                <button class="service-card-action-btn" aria-label="Замовити">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -358,7 +400,7 @@ get_header();
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
-                                <p class="service-card-description">Credibility takes years. We design it overnight. Your brand should define categories, speak to your audience, and build trust that converts.</p>
+                                <p class="service-card-description">Довіра будується роками. Ми створюємо її за ніч. Ваш бренд має формувати категорію, говорити з аудиторією й перетворювати увагу в конверсії.</p>
                                 <div class="service-card-footer">
                                     <div class="service-card-pattern">
                                         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,8 +435,8 @@ get_header();
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="service-card-header">
-                                <h3 class="service-card-title">Website Design</h3>
-                                <button class="service-card-action-btn" aria-label="Hire us">
+                                <h3 class="service-card-title">Дизайн сайтів</h3>
+                                <button class="service-card-action-btn" aria-label="Замовити">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -402,13 +444,13 @@ get_header();
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
-                                <p class="service-card-description">Your website should do more than look good and load fast. Build credibility, earn clicks, and drive conversion. Awards? Just a bonus.</p>
+                                <p class="service-card-description">Ваш сайт має не лише гарно виглядати й швидко вантажитись. Він будує довіру, збирає кліки й ростить конверсію. Нагороди? Лише бонус.</p>
                                 <div class="service-card-footer">
                                     <button class="service-card-learn-btn">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        <span>Learn more</span>
+                                        <span>Дізнатися більше</span>
                                     </button>
                                     <div class="service-card-pattern">
                                         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -453,29 +495,29 @@ get_header();
         <!-- Contact Section -->
         <section class="contact-section" id="contact">
             <div class="wide-container">
-                <h2 class="contact-title">Let's work together</h2>
+                <h2 class="contact-title">Працюймо разом</h2>
                 <div class="contact-divider"></div>
                 <div class="contact-wrapper">
                     <!-- Left: Contact Form -->
                     <div class="contact-form-wrapper">
                         <form class="contact-form" method="post" action="">
                             <div class="contact-form-field">
-                                <label for="contact-name" class="contact-form-label">Name</label>
+                                <label for="contact-name" class="contact-form-label">Ім'я</label>
                                 <input type="text" id="contact-name" name="name" class="contact-form-input" required>
                             </div>
                             <div class="contact-form-field">
-                                <label for="contact-email" class="contact-form-label">Email</label>
+                                <label for="contact-email" class="contact-form-label">Ел. пошта</label>
                                 <input type="email" id="contact-email" name="email" class="contact-form-input" required>
                             </div>
                             <div class="contact-form-field">
-                                <label for="contact-message" class="contact-form-label">Message</label>
+                                <label for="contact-message" class="contact-form-label">Повідомлення</label>
                                 <textarea id="contact-message" name="message" class="contact-form-textarea" rows="6" required></textarea>
                             </div>
                             <button type="submit" class="contact-form-submit">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M7 17L17 7M7 7h10v10"/>
                                 </svg>
-                                <span>Send message</span>
+                                <span>Надіслати повідомлення</span>
                             </button>
                         </form>
                     </div>
@@ -483,16 +525,16 @@ get_header();
                     <!-- Right: Contact Info -->
                     <div class="contact-info">
                         <div class="contact-info-item">
-                            <span class="contact-info-label">Email</span>
+                            <span class="contact-info-label">Ел. пошта</span>
                             <a href="mailto:hello@antongotry.dev" class="contact-info-link">hello@antongotry.dev</a>
                         </div>
                         <div class="contact-info-item">
-                            <span class="contact-info-label">Telegram</span>
+                            <span class="contact-info-label">Телеграм</span>
                             <a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer" class="contact-info-link">@notarikon</a>
                         </div>
                         <div class="contact-info-item">
-                            <span class="contact-info-label">Location</span>
-                            <span class="contact-info-text">Ukraine</span>
+                            <span class="contact-info-label">Локація</span>
+                            <span class="contact-info-text">Україна</span>
                         </div>
                     </div>
                 </div>
@@ -516,7 +558,7 @@ get_header();
                     <!-- Clutch -->
                     <a href="https://clutch.co" target="_blank" rel="noopener noreferrer" class="social-link-item">
                         <div class="social-link-icon">
-                            <span class="social-link-label">Client Reviews</span>
+                            <span class="social-link-label">Відгуки клієнтів</span>
                         </div>
                         <span class="social-link-text">Clutch</span>
                     </a>
@@ -586,9 +628,9 @@ get_header();
                 <span>2026 © Gotry</span>
             </div>
             <div class="footer-links">
-                <a href="#credentials" class="footer-link">Our Credentials</a>
-                <a href="#terms" class="footer-link">Terms & Conditions</a>
-                <a href="#privacy" class="footer-link">Privacy Policy</a>
+                <a href="#credentials" class="footer-link">Наші нагороди</a>
+                <a href="#terms" class="footer-link">Умови використання</a>
+                <a href="#privacy" class="footer-link">Політика конфіденційності</a>
             </div>
         </div>
     </div>

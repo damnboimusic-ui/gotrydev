@@ -112,3 +112,73 @@
         });
     });
 })();
+
+// Swiper sliders for cases and projects
+(function() {
+    function initSwipers() {
+        if (typeof Swiper === 'undefined') {
+            setTimeout(initSwipers, 200);
+            return;
+        }
+
+        const casesEl = document.querySelector('.cases-swiper');
+        if (casesEl) {
+            new Swiper(casesEl, {
+                slidesPerView: 1.05,
+                spaceBetween: 16,
+                grabCursor: true,
+                pagination: {
+                    el: '.cases-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.cases-next',
+                    prevEl: '.cases-prev'
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 24
+                    }
+                }
+            });
+        }
+
+        const projectsEl = document.querySelector('.projects-swiper');
+        if (projectsEl) {
+            new Swiper(projectsEl, {
+                slidesPerView: 1.05,
+                spaceBetween: 16,
+                grabCursor: true,
+                pagination: {
+                    el: '.projects-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.projects-next',
+                    prevEl: '.projects-prev'
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 24
+                    }
+                }
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSwipers);
+    } else {
+        initSwipers();
+    }
+})();
