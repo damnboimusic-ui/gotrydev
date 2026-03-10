@@ -569,59 +569,93 @@ get_header();
             <div class="wide-container">
                 <div class="team-header">
                     <span class="team-kicker">Команда</span>
-                    <h2 class="team-title">Маленька сильна команда під ваш сайт.</h2>
-                    <p class="team-description">Ми працюємо як єдиний продакшн: від позиціонування й дизайну до запуску на конструкторі або full-code реалізації.</p>
+                    <h2 class="team-title">5 спеціалістів. 1 система. Максимум фокусу на вашому бренді й продукті.</h2>
+                    <p class="team-description">Змінили концепцію блоку: тепер це фокус-мозаїка ролей, де одразу видно хто відповідає за креатив, бренд, конструктори, OpenCart та складний full-code.</p>
                 </div>
 
-                <div class="team-grid">
-                    <article class="team-card team-card-designer">
-                        <div class="team-photo-wrap">
+                <div class="team-mosaic">
+                    <article class="team-panel team-spotlight">
+                        <div class="team-media">
                             <img
                                 src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80"
-                                alt="Дизайнер і маркетолог команди"
+                                alt="Дизайнер креативних сайтів"
                                 class="team-photo"
                                 loading="lazy"
                             >
                         </div>
-                        <div class="team-card-body">
+                        <div class="team-content">
                         <span class="team-role-tag">Role 01</span>
-                        <h3 class="team-role-title">Дизайнер + маркетолог</h3>
-                        <p class="team-role-copy">Відповідає за візуальну систему, структуру сторінок, смислові акценти та конверсійні сценарії.</p>
-                        <div class="team-role-result">Результат: дизайн, який продає, а не просто подобається.</div>
+                        <h3 class="team-role-title">Дизайнер креативних сайтів</h3>
+                        <p class="team-role-copy">Створює сміливу візуальну подачу, сторітелінг і композицію, що ловить увагу в перші секунди.</p>
+                        <div class="team-role-result">Фокус: креатив, UX-наратив, wow-перший екран.</div>
                         </div>
                     </article>
 
-                    <article class="team-card team-card-builder">
-                        <div class="team-photo-wrap">
+                    <article class="team-panel team-tile team-tile-brand">
+                        <div class="team-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1400&q=80"
+                                alt="Senior бренд-дизайнер"
+                                class="team-photo"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="team-content">
+                        <span class="team-role-tag">Role 02</span>
+                        <h3 class="team-role-title">Senior бренд-дизайнер</h3>
+                        <p class="team-role-copy">Веде логобуки й брендбуки, формує цілісну бренд-систему для бізнесу.</p>
+                        <div class="team-role-result">Фокус: логотипи, бренд-архітектура, айдентика.</div>
+                        </div>
+                    </article>
+
+                    <article class="team-panel team-tile team-tile-builder">
+                        <div class="team-media">
                             <img
                                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80"
-                                alt="Розробник на WordPress та Elementor"
+                                alt="Розробник на WordPress Elementor та OpenCart"
                                 class="team-photo"
                                 loading="lazy"
                             >
                         </div>
-                        <div class="team-card-body">
-                        <span class="team-role-tag">Role 02</span>
+                        <div class="team-content">
+                        <span class="team-role-tag">Role 03</span>
                         <h3 class="team-role-title">Розробник на конструкторах</h3>
-                        <p class="team-role-copy">Збирає магазини й лендинги на WordPress + Elementor, акуратно переносить макети з Figma у production.</p>
-                        <div class="team-role-result">Результат: швидкий запуск без втрати якості дизайну.</div>
+                        <p class="team-role-copy">Збирає сайти й магазини на WordPress, Elementor та OpenCart по макетах з Figma.</p>
+                        <div class="team-role-result">Фокус: швидкий запуск і e-commerce без втрати дизайну.</div>
                         </div>
                     </article>
 
-                    <article class="team-card team-card-code">
-                        <div class="team-photo-wrap">
+                    <article class="team-panel team-tile team-tile-code">
+                        <div class="team-media">
                             <img
                                 src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?auto=format&fit=crop&w=1400&q=80"
-                                alt="Full-code розробник команди"
+                                alt="Full-code розробник"
                                 class="team-photo"
                                 loading="lazy"
                             >
                         </div>
-                        <div class="team-card-body">
-                        <span class="team-role-tag">Role 03</span>
+                        <div class="team-content">
+                        <span class="team-role-tag">Role 04</span>
                         <h3 class="team-role-title">Full-code розробник</h3>
-                        <p class="team-role-copy">Робить кастомні рішення, інтеграції, оптимізацію швидкості та складну бізнес-логіку, коли конструкторів вже мало.</p>
-                        <div class="team-role-result">Результат: масштабований продукт без технічних обмежень.</div>
+                        <p class="team-role-copy">Пише кастомну логіку, API-інтеграції, складні особисті кабінети та нестандартний функціонал.</p>
+                        <div class="team-role-result">Фокус: масштабованість, контроль і гнучкість.</div>
+                        </div>
+                    </article>
+
+                    <article class="team-panel team-tile team-tile-tech">
+                        <div class="team-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=80"
+                                alt="Технічний розробник з оптимізації"
+                                class="team-photo"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="team-content">
+                        <span class="team-role-tag">Role 05</span>
+                        <h3 class="team-role-title">Технічний розробник</h3>
+                        <p class="team-role-copy">Дотискає швидкість, SEO-технічку, стабільність та підтримку після релізу.</p>
+                        <div class="team-role-result">Фокус: performance, стабільність, технічна якість.</div>
                         </div>
                     </article>
                 </div>
@@ -630,6 +664,7 @@ get_header();
                     <span>Один контакт</span>
                     <span>Повний цикл</span>
                     <span>Прозорі дедлайни</span>
+                    <span>WordPress / Elementor / OpenCart</span>
                 </div>
 
                 <a href="#contact" class="team-cta">
