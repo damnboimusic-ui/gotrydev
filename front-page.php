@@ -576,23 +576,23 @@ get_header();
                         </div>
 
                         <div class="team-roster">
-                            <div class="team-roster-row">
+                            <div class="team-roster-row is-active" data-team-image="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80" data-team-alt="Креативний дизайнер" data-team-quote-one="Креативний дизайнер формує візуальну драматургію сайту і створює сильний перший екран, який запамʼятовується." data-team-quote-two="Він відповідає за тон бренду в інтерфейсі, композицію та відчуття преміальності в кожному блоці." data-team-name="Креативний дизайнер" data-team-meta="Сайти, сторітелінг, концепти">
                                 <span class="team-roster-name">Креативний дизайнер</span>
                                 <span class="team-roster-role">Сайти, сторітелінг, концепти</span>
                             </div>
-                            <div class="team-roster-row">
+                            <div class="team-roster-row" data-team-image="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80" data-team-alt="Senior бренд-дизайнер" data-team-quote-one="Senior бренд-дизайнер вибудовує цілісну бренд-систему: від логотипу до правил використання в digital і офлайні." data-team-quote-two="Логобуки і брендбуки створюють впізнаваність та системність, щоб бізнес виглядав доросло на будь-якому носії." data-team-name="Senior бренд-дизайнер" data-team-meta="Логобуки, брендбуки, айдентика">
                                 <span class="team-roster-name">Senior бренд-дизайнер</span>
                                 <span class="team-roster-role">Логобуки, брендбуки, айдентика</span>
                             </div>
-                            <div class="team-roster-row">
+                            <div class="team-roster-row" data-team-image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80" data-team-alt="Web Developer WordPress Elementor" data-team-quote-one="Web Developer швидко збирає production-версії на WordPress + Elementor без втрати якості дизайн-макетів." data-team-quote-two="Оптимальний вибір, коли важлива швидкість запуску, стабільність і зручна робота з контентом для команди клієнта." data-team-name="Web Developer" data-team-meta="WordPress + Elementor">
                                 <span class="team-roster-name">Web Developer</span>
                                 <span class="team-roster-role">WordPress + Elementor</span>
                             </div>
-                            <div class="team-roster-row">
+                            <div class="team-roster-row" data-team-image="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1600&q=80" data-team-alt="E-commerce Developer OpenCart" data-team-quote-one="E-commerce Developer на OpenCart закриває структуру каталогу, сторінки товару, кошик, checkout і базові інтеграції." data-team-quote-two="Фокус на конверсії магазину, швидкості роботи та зручному управлінні товарами в адмін-панелі." data-team-name="E-commerce Developer" data-team-meta="OpenCart, каталог, checkout">
                                 <span class="team-roster-name">E-commerce Developer</span>
                                 <span class="team-roster-role">OpenCart, каталог, checkout</span>
                             </div>
-                            <div class="team-roster-row">
+                            <div class="team-roster-row" data-team-image="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?auto=format&fit=crop&w=1600&q=80" data-team-alt="Full-code Developer" data-team-quote-one="Full-code Developer бере задачі, де потрібні кастомні модулі, API-інтеграції та нестандартна бізнес-логіка." data-team-quote-two="Це шар, який дає контроль, масштабованість і технічну гнучкість для складних продуктів." data-team-name="Full-code Developer" data-team-meta="Кастомна логіка, API, performance">
                                 <span class="team-roster-name">Full-code Developer</span>
                                 <span class="team-roster-role">Кастомна логіка, API, performance</span>
                             </div>
@@ -603,21 +603,21 @@ get_header();
                                 <img
                                     src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
                                     alt="Команда на стратегічній сесії"
-                                    class="team-focus-photo"
+                                    class="team-focus-photo js-team-focus-photo"
                                     loading="lazy"
                                 >
                             </div>
                             <div class="team-focus-overlay"></div>
                             <div class="team-focus-content">
-                                <p class="team-focus-quote">
+                                <p class="team-focus-quote js-team-focus-quote-one">
                                     Ми поєднуємо креатив, бренд та інженерію так, щоб сайт виглядав преміально, швидко запускався і ріс у конверсії.
                                 </p>
-                                <p class="team-focus-quote">
+                                <p class="team-focus-quote js-team-focus-quote-two">
                                     Працюємо від концепту до production: WordPress, Elementor, OpenCart та full-code для складних задач.
                                 </p>
                                 <div class="team-focus-meta">
-                                    <strong>Команда Gotry</strong>
-                                    <span>Design • Brand • Web • OpenCart • Full-code</span>
+                                    <strong class="js-team-focus-name">Команда Gotry</strong>
+                                    <span class="js-team-focus-meta">Design • Brand • Web • OpenCart • Full-code</span>
                                 </div>
                             </div>
                         </article>

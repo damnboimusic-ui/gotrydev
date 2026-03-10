@@ -229,3 +229,64 @@
         initSwipers();
     }
 })();
+
+// Team sticky roster interaction
+(function() {
+    function initTeamRoster() {
+        const rows = document.querySelectorAll('.team-roster-row[data-team-image]');
+        if (!rows.length) return;
+
+        const photoEl = document.querySelector('.js-team-focus-photo');
+        const quoteOneEl = document.querySelector('.js-team-focus-quote-one');
+        const quoteTwoEl = document.querySelector('.js-team-focus-quote-two');
+        const nameEl = document.querySelector('.js-team-focus-name');
+        const metaEl = document.querySelector('.js-team-focus-meta');
+
+        if (!photoEl || !quoteOneEl || !quoteTwoEl || !nameEl || !metaEl) return;
+
+        function applyRow(row) {
+            rows.forEach((item) => item.classList.remove('is-active'));
+            row.classList.add('is-active');
+
+            const nextImage = row.getAttribute('data-team-image');
+            const nextAlt = row.getAttribute('data-team-alt') || '';
+            const quoteOne = row.getAttribute('data-team-quote-one') || '';
+            const quoteTwo = row.getAttribute('data-team-quote-two') || '';
+            const name = row.getAttribute('data-team-name') || '';
+            const meta = row.getAttribute('data-team-meta') || '';
+
+            if (nextImage) {
+                photoEl.src = nextImage;
+            }
+            photoEl.alt = nextAlt;
+            quoteOneEl.textContent = quoteOne;
+            quoteTwoEl.textContent = quoteTwo;
+            nameEl.textContent = name;
+            metaEl.textContent = meta;
+        }
+
+        rows.forEach((row) => {
+            row.setAttribute('tabindex', '0');
+            row.addEventListener('mouseenter', () => applyRow(row));
+            row.addEventListener('click', () => applyRow(row));
+            row.addEventListener('focus', () => applyRow(row));
+            row.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    applyRow(row);
+                }
+            });
+        });
+
+        const initialActive = document.querySelector('.team-roster-row.is-active') || rows[0];
+        if (initialActive) {
+            applyRow(initialActive);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTeamRoster);
+    } else {
+        initTeamRoster();
+    }
+})();

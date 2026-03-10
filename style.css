@@ -1802,10 +1802,17 @@ body.home .wide-container {
     gap: 20px;
     padding: 16px 24px;
     border-bottom: 1px solid rgba(29, 29, 29, 0.12);
+    cursor: pointer;
+    transition: background var(--transition-fast);
 }
 
 .team-roster-row:last-child {
     border-bottom: none;
+}
+
+.team-roster-row:hover,
+.team-roster-row.is-active {
+    background: rgba(29, 29, 29, 0.04);
 }
 
 .team-roster-name {
@@ -1813,12 +1820,22 @@ body.home .wide-container {
     line-height: 1.1;
     color: #1D1D1D;
     letter-spacing: -0.02em;
+    transition: color var(--transition-fast);
 }
 
 .team-roster-role {
     font-size: clamp(14px, 1.4vw, 20px);
     color: #8A8790;
     text-align: right;
+    transition: color var(--transition-fast);
+}
+
+.team-roster-row.is-active .team-roster-name {
+    color: #121212;
+}
+
+.team-roster-row.is-active .team-roster-role {
+    color: #5f5d63;
 }
 
 .team-focus-card {
