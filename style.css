@@ -1490,6 +1490,257 @@ body.home .wide-container {
     display: block;
 }
 
+/* Studio Signature Section */
+.studio-signature-section {
+    margin-top: 160px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.studio-signature-shell {
+    border: 1px solid #1D1D1D;
+    border-radius: 12px;
+    background: #f5f3f7;
+    padding: 56px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 40px;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.studio-signature-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(90deg, rgba(29, 29, 29, 0.04) 1px, transparent 1px),
+                      linear-gradient(180deg, rgba(29, 29, 29, 0.03) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.32;
+}
+
+.studio-signature-copy,
+.studio-signature-visual {
+    position: relative;
+    z-index: 1;
+}
+
+.studio-signature-kicker {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #7C7A80;
+    margin-bottom: 18px;
+}
+
+.studio-signature-title {
+    font-size: clamp(30px, 3.7vw, 52px);
+    line-height: 1.08;
+    color: #1D1D1D;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+
+.studio-signature-description {
+    font-size: clamp(15px, 1.7vw, 19px);
+    line-height: 1.75;
+    color: #1D1D1D;
+    max-width: 620px;
+    margin-bottom: 28px;
+}
+
+.studio-signature-points {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.studio-signature-point {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(29, 29, 29, 0.16);
+}
+
+.studio-signature-point-index {
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: #858488;
+    text-transform: uppercase;
+}
+
+.studio-signature-point-text {
+    font-size: 16px;
+    color: #1D1D1D;
+    letter-spacing: -0.01em;
+}
+
+.studio-signature-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border: 1px solid #1D1D1D;
+    border-radius: 999px;
+    color: #1D1D1D;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: background var(--transition-base), color var(--transition-base);
+}
+
+.studio-signature-cta:hover {
+    background: #1D1D1D;
+    color: #fff;
+}
+
+.studio-orbit-card {
+    min-height: 360px;
+    border: 1px solid rgba(29, 29, 29, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #f6f3fa 0%, #f0ebf7 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.studio-orbit-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155, 81, 224, 0.30) 0%, rgba(155, 81, 224, 0.06) 52%, rgba(155, 81, 224, 0) 76%);
+    animation: studioPulse 7s ease-in-out infinite;
+}
+
+.studio-orbit-grid {
+    position: absolute;
+    inset: 22px;
+    border-radius: 10px;
+    border: 1px solid rgba(29, 29, 29, 0.14);
+}
+
+.studio-orbit-grid::before,
+.studio-orbit-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px dashed rgba(29, 29, 29, 0.12);
+    animation: studioRotate 18s linear infinite;
+}
+
+.studio-orbit-grid::after {
+    inset: 16px;
+    animation-duration: 26s;
+    animation-direction: reverse;
+}
+
+.studio-orbit-center {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(245, 243, 247, 0.86);
+    border: 1px solid rgba(29, 29, 29, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.studio-orbit-label {
+    font-size: 12px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #858488;
+    margin-bottom: 10px;
+}
+
+.studio-orbit-value {
+    font-size: 24px;
+    line-height: 1.2;
+    color: #1D1D1D;
+    letter-spacing: -0.02em;
+}
+
+.studio-orbit-chip {
+    position: absolute;
+    background: #1D1D1D;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 8px 12px;
+    z-index: 2;
+}
+
+.chip-top {
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chip-right {
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.chip-bottom {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes studioRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes studioPulse {
+    0%,
+    100% {
+        transform: scale(0.92);
+        opacity: 0.72;
+    }
+    50% {
+        transform: scale(1.04);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .studio-orbit-grid::before,
+    .studio-orbit-grid::after,
+    .studio-orbit-glow {
+        animation: none;
+    }
+}
+
 /* Contact Section */
 .contact-section {
     margin-top: 160px;
@@ -2083,6 +2334,60 @@ body.home .wide-container {
     .service-card-pattern svg {
         width: 80px;
         height: 80px;
+    }
+
+    .studio-signature-section {
+        margin-top: 80px;
+    }
+
+    .studio-signature-shell {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 22px;
+        border-radius: 10px;
+    }
+
+    .studio-signature-title {
+        font-size: clamp(30px, 8.5vw, 42px);
+        margin-bottom: 18px;
+    }
+
+    .studio-signature-description {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    .studio-signature-point {
+        grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .studio-signature-point-text {
+        font-size: 15px;
+    }
+
+    .studio-signature-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .studio-orbit-card {
+        min-height: 300px;
+    }
+
+    .studio-orbit-center {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+    }
+
+    .studio-orbit-value {
+        font-size: 20px;
+    }
+
+    .studio-orbit-chip {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        padding: 7px 10px;
     }
     
     /* Sidebar - smaller on mobile but still visible */

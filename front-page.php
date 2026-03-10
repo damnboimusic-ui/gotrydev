@@ -515,6 +515,54 @@ get_header();
             </div>
         </section>
         
+        <!-- Studio Signature Section -->
+        <section class="studio-signature-section" id="studio-signature">
+            <div class="wide-container">
+                <div class="studio-signature-shell">
+                    <div class="studio-signature-copy">
+                        <span class="studio-signature-kicker">Studio Signature</span>
+                        <h2 class="studio-signature-title">Сайт, що виглядає як категорія, а не як шаблон.</h2>
+                        <p class="studio-signature-description">
+                            Ми збираємо бренд, інтерфейс і сенси в одну точку уваги. Результат: сторінка не просто красива, вона веде користувача по чіткому маршруту до заявки.
+                        </p>
+                        <div class="studio-signature-points">
+                            <div class="studio-signature-point">
+                                <span class="studio-signature-point-index">01</span>
+                                <span class="studio-signature-point-text">Стратегія позиціонування</span>
+                            </div>
+                            <div class="studio-signature-point">
+                                <span class="studio-signature-point-index">02</span>
+                                <span class="studio-signature-point-text">Візуальна система + motion</span>
+                            </div>
+                            <div class="studio-signature-point">
+                                <span class="studio-signature-point-index">03</span>
+                                <span class="studio-signature-point-text">Запуск і ріст конверсії</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="studio-signature-cta">
+                            <span>Обговорити проєкт</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="studio-signature-visual">
+                        <div class="studio-orbit-card">
+                            <div class="studio-orbit-glow"></div>
+                            <div class="studio-orbit-grid"></div>
+                            <div class="studio-orbit-center">
+                                <span class="studio-orbit-label">Gotry Studio</span>
+                                <strong class="studio-orbit-value">Premium Web Systems</strong>
+                            </div>
+                            <div class="studio-orbit-chip chip-top">Brand</div>
+                            <div class="studio-orbit-chip chip-right">UX/UI</div>
+                            <div class="studio-orbit-chip chip-bottom">Web</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="contact-section" id="contact">
             <div class="wide-container">
