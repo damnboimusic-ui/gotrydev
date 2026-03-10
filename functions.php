@@ -113,3 +113,55 @@ add_filter('show_admin_bar', function($show) {
     }
     return $show;
 });
+
+/**
+ * Contact form redirect helper.
+ */
+function gotry_contact_redirect_with_status($status) {
+    $redirect_url = add_query_arg(
+        'contact_status',
+        sanitize_key($status),
+        home_url('/#contact')
+    );
+
+    wp_safe_redirect($redirect_url);
+    exit;
+}
+
+/**
+ * Front-page contact form handler.
+ */
+function gotry_handle_contact_submit() {
+    if (!isset($_POST['gotry_contact_nonce']) || !wp_verify_nonce($_POST['gotry_contact_nonce'], 'gotry_contact_submit')) {
+        gotry_contact_redirect_with_status('invalid');
+    }
+
+    $name = isset($_POST['name']) ? sanitize_text_field(wp_unslash($_POST['name'])) : '';
+    $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+    $message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+
+    if (empty($name) || empty($email) || !is_email($email) || empty($message)) {
+        gotry_contact_redirect_with_status('invalid');
+    }
+
+    $to = get_option('admin_email');
+    $subject = sprintf('Нова заявка з сайту Gotry від %s', $name);
+    $body = "Ім'я: {$name}\n";
+    $body .= "Email: {$email}\n\n";
+    $body .= "Повідомлення:\n{$message}\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        "Reply-To: {$name} <{$email}>",
+    );
+
+    $sent = wp_mail($to, $subject, $body, $headers);
+
+    if ($sent) {
+        gotry_contact_redirect_with_status('success');
+    }
+
+    gotry_contact_redirect_with_status('error');
+}
+add_action('admin_post_nopriv_gotry_contact_submit', 'gotry_handle_contact_submit');
+add_action('admin_post_gotry_contact_submit', 'gotry_handle_contact_submit');

@@ -69,6 +69,7 @@ get_header();
             <nav class="site-menu-links">
                 <a href="#hero" class="site-menu-link">Головна</a>
                 <a href="#services" class="site-menu-link">Послуги</a>
+                <a href="#team" class="site-menu-link">Команда</a>
                 <a href="#contact" class="site-menu-link">Контакти</a>
             </nav>
             <div class="site-menu-footer">
@@ -563,6 +564,86 @@ get_header();
             </div>
         </section>
 
+        <!-- Team Section -->
+        <section class="team-section" id="team">
+            <div class="wide-container">
+                <div class="team-header">
+                    <span class="team-kicker">Команда</span>
+                    <h2 class="team-title">Маленька сильна команда під ваш сайт.</h2>
+                    <p class="team-description">Ми працюємо як єдиний продакшн: від позиціонування й дизайну до запуску на конструкторі або full-code реалізації.</p>
+                </div>
+
+                <div class="team-grid">
+                    <article class="team-card">
+                        <span class="team-role-tag">Role 01</span>
+                        <h3 class="team-role-title">Дизайнер + маркетолог</h3>
+                        <p class="team-role-copy">Відповідає за візуальну систему, структуру сторінок, смислові акценти та конверсійні сценарії.</p>
+                        <div class="team-role-result">Результат: дизайн, який продає, а не просто подобається.</div>
+                    </article>
+
+                    <article class="team-card">
+                        <span class="team-role-tag">Role 02</span>
+                        <h3 class="team-role-title">Розробник на конструкторах</h3>
+                        <p class="team-role-copy">Збирає магазини й лендинги на WordPress + Elementor, акуратно переносить макети з Figma у production.</p>
+                        <div class="team-role-result">Результат: швидкий запуск без втрати якості дизайну.</div>
+                    </article>
+
+                    <article class="team-card">
+                        <span class="team-role-tag">Role 03</span>
+                        <h3 class="team-role-title">Full-code розробник</h3>
+                        <p class="team-role-copy">Робить кастомні рішення, інтеграції, оптимізацію швидкості та складну бізнес-логіку, коли конструкторів вже мало.</p>
+                        <div class="team-role-result">Результат: масштабований продукт без технічних обмежень.</div>
+                    </article>
+                </div>
+
+                <div class="team-footer-line">
+                    <span>Один контакт</span>
+                    <span>Повний цикл</span>
+                    <span>Прозорі дедлайни</span>
+                </div>
+
+                <a href="#contact" class="team-cta">
+                    <span>Зібрати вашу команду під проєкт</span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section" id="process">
+            <div class="wide-container">
+                <div class="process-header">
+                    <span class="process-kicker">Process</span>
+                    <h2 class="process-title">Як ми працюємо: 4 кроки до запуску</h2>
+                </div>
+
+                <div class="process-grid">
+                    <article class="process-card">
+                        <span class="process-index">01</span>
+                        <h3 class="process-step-title">Бриф</h3>
+                        <p class="process-step-copy">Фіксуємо бізнес-цілі, ЦА, KPI, контент та технічні обмеження.</p>
+                    </article>
+                    <article class="process-card">
+                        <span class="process-index">02</span>
+                        <h3 class="process-step-title">Концепт</h3>
+                        <p class="process-step-copy">Будуємо структуру сторінки, тональність та візуальний напрям.</p>
+                    </article>
+                    <article class="process-card">
+                        <span class="process-index">03</span>
+                        <h3 class="process-step-title">Продакшн</h3>
+                        <p class="process-step-copy">Дизайн + верстка + інтеграції: збираємо сайт у робочий продукт.</p>
+                    </article>
+                    <article class="process-card">
+                        <span class="process-index">04</span>
+                        <h3 class="process-step-title">Запуск</h3>
+                        <p class="process-step-copy">Тестуємо, оптимізуємо швидкість і віддаємо готовий сайт у ріст.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="contact-section" id="contact">
             <div class="wide-container">
@@ -571,7 +652,18 @@ get_header();
                 <div class="contact-wrapper">
                     <!-- Left: Contact Form -->
                     <div class="contact-form-wrapper">
-                        <form class="contact-form" method="post" action="">
+                        <?php $contact_status = isset($_GET['contact_status']) ? sanitize_key($_GET['contact_status']) : ''; ?>
+                        <?php if ($contact_status === 'success') : ?>
+                            <div class="contact-form-alert contact-form-alert-success">Дякуємо! Повідомлення надіслано. Зв'яжемося з вами найближчим часом.</div>
+                        <?php elseif ($contact_status === 'invalid') : ?>
+                            <div class="contact-form-alert contact-form-alert-error">Будь ласка, заповніть коректно всі поля форми.</div>
+                        <?php elseif ($contact_status === 'error') : ?>
+                            <div class="contact-form-alert contact-form-alert-error">Не вдалося надіслати повідомлення. Спробуйте ще раз або напишіть у Telegram.</div>
+                        <?php endif; ?>
+
+                        <form class="contact-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                            <input type="hidden" name="action" value="gotry_contact_submit">
+                            <?php wp_nonce_field('gotry_contact_submit', 'gotry_contact_nonce'); ?>
                             <div class="contact-form-field">
                                 <label for="contact-name" class="contact-form-label">Ім'я</label>
                                 <input type="text" id="contact-name" name="name" class="contact-form-input" required>
@@ -685,6 +777,34 @@ get_header();
                         </div>
                         <span class="social-link-text">LinkedIn</span>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Anchors Sections -->
+        <section class="footer-meta-section" id="credentials">
+            <div class="wide-container">
+                <div class="footer-meta-shell">
+                    <h2 class="footer-meta-title">Нагороди та визнання</h2>
+                    <p class="footer-meta-copy">Наші роботи потрапляли в підбірки дизайн-платформ і професійних спільнот. Головний критерій для нас: реальний вплив дизайну на бізнес-результат.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-meta-section" id="terms">
+            <div class="wide-container">
+                <div class="footer-meta-shell">
+                    <h2 class="footer-meta-title">Умови співпраці</h2>
+                    <p class="footer-meta-copy">Працюємо по етапах із зафіксованим scope, дедлайнами і прозорими статусами. Кожен етап погоджується перед стартом наступного.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-meta-section" id="privacy">
+            <div class="wide-container">
+                <div class="footer-meta-shell">
+                    <h2 class="footer-meta-title">Політика конфіденційності</h2>
+                    <p class="footer-meta-copy">Контактні дані з форми використовуються лише для комунікації по проєкту і не передаються третім сторонам без вашої згоди.</p>
                 </div>
             </div>
         </section>
