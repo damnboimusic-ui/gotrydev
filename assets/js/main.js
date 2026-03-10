@@ -290,3 +290,65 @@
         initTeamRoster();
     }
 })();
+
+// Process timeline progress + active steps on scroll
+(function() {
+    function initProcessTimeline() {
+        const section = document.querySelector('.process-section');
+        const grid = document.querySelector('.process-grid');
+        const cards = grid ? Array.from(grid.querySelectorAll('.process-card')) : [];
+        if (!section || !grid || !cards.length) return;
+
+        function clamp(value, min, max) {
+            return Math.max(min, Math.min(max, value));
+        }
+
+        function updateTimeline() {
+            const sectionRect = section.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // Start filling when section enters viewport and finish near section end.
+            const startPoint = viewportHeight * 0.78;
+            const trackLength = Math.max(sectionRect.height * 0.72, 1);
+            const progress = clamp((startPoint - sectionRect.top) / trackLength, 0, 1);
+            grid.style.setProperty('--process-progress', progress.toFixed(4));
+
+            let activeIndex = -1;
+            const activationLine = viewportHeight * 0.62;
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                if (cardRect.top <= activationLine) {
+                    activeIndex = index;
+                }
+            });
+
+            cards.forEach((card, index) => {
+                card.classList.toggle('is-active', index <= activeIndex);
+            });
+        }
+
+        let ticking = false;
+        function requestUpdate() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                updateTimeline();
+                ticking = false;
+            });
+        }
+
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate, { passive: true });
+        if (window.lenis) {
+            window.lenis.on('scroll', requestUpdate);
+        }
+
+        updateTimeline();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProcessTimeline);
+    } else {
+        initProcessTimeline();
+    }
+})();

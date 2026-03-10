@@ -1982,6 +1982,7 @@ body.home .wide-container {
     position: relative;
     display: grid;
     gap: 16px;
+    --process-progress: 0;
 }
 
 .process-grid::before {
@@ -1995,6 +1996,19 @@ body.home .wide-container {
     transform: translateX(-50%);
 }
 
+.process-grid::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 2px;
+    height: calc((100% - 16px) * var(--process-progress));
+    background: linear-gradient(180deg, #1D1D1D 0%, #4b5563 100%);
+    transform: translateX(-50%);
+    border-radius: 999px;
+    z-index: 1;
+}
+
 .process-card {
     border: 1px solid #1D1D1D;
     border-radius: 10px;
@@ -2003,7 +2017,8 @@ body.home .wide-container {
     min-height: 170px;
     max-width: 46%;
     position: relative;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+    z-index: 2;
 }
 
 .process-card:nth-child(odd) {
@@ -2021,8 +2036,9 @@ body.home .wide-container {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #1D1D1D;
-    box-shadow: 0 0 0 4px rgba(29, 29, 29, 0.08);
+    background: #8a8890;
+    box-shadow: 0 0 0 4px rgba(29, 29, 29, 0.06);
+    transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
 }
 
 .process-card:nth-child(odd)::before {
@@ -2038,6 +2054,18 @@ body.home .wide-container {
     box-shadow: 0 10px 22px rgba(29, 29, 29, 0.09);
 }
 
+.process-card.is-active {
+    background: #ffffff;
+    border-color: rgba(29, 29, 29, 0.64);
+    box-shadow: 0 12px 24px rgba(29, 29, 29, 0.11);
+}
+
+.process-card.is-active::before {
+    background: #1D1D1D;
+    transform: scale(1.16);
+    box-shadow: 0 0 0 5px rgba(29, 29, 29, 0.15);
+}
+
 .process-index {
     display: inline-block;
     font-size: 12px;
@@ -2045,6 +2073,11 @@ body.home .wide-container {
     text-transform: uppercase;
     color: #858488;
     margin-bottom: 14px;
+    transition: color var(--transition-base);
+}
+
+.process-card.is-active .process-index {
+    color: #1D1D1D;
 }
 
 .process-step-title {
@@ -2859,6 +2892,11 @@ body.home .wide-container {
     }
 
     .process-grid::before {
+        left: 8px;
+        transform: none;
+    }
+
+    .process-grid::after {
         left: 8px;
         transform: none;
     }
