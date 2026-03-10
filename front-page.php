@@ -574,25 +574,55 @@ get_header();
                 </div>
 
                 <div class="team-grid">
-                    <article class="team-card">
+                    <article class="team-card team-card-designer">
+                        <div class="team-photo-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80"
+                                alt="Дизайнер і маркетолог команди"
+                                class="team-photo"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="team-card-body">
                         <span class="team-role-tag">Role 01</span>
                         <h3 class="team-role-title">Дизайнер + маркетолог</h3>
                         <p class="team-role-copy">Відповідає за візуальну систему, структуру сторінок, смислові акценти та конверсійні сценарії.</p>
                         <div class="team-role-result">Результат: дизайн, який продає, а не просто подобається.</div>
+                        </div>
                     </article>
 
-                    <article class="team-card">
+                    <article class="team-card team-card-builder">
+                        <div class="team-photo-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80"
+                                alt="Розробник на WordPress та Elementor"
+                                class="team-photo"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="team-card-body">
                         <span class="team-role-tag">Role 02</span>
                         <h3 class="team-role-title">Розробник на конструкторах</h3>
                         <p class="team-role-copy">Збирає магазини й лендинги на WordPress + Elementor, акуратно переносить макети з Figma у production.</p>
                         <div class="team-role-result">Результат: швидкий запуск без втрати якості дизайну.</div>
+                        </div>
                     </article>
 
-                    <article class="team-card">
+                    <article class="team-card team-card-code">
+                        <div class="team-photo-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?auto=format&fit=crop&w=1400&q=80"
+                                alt="Full-code розробник команди"
+                                class="team-photo"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="team-card-body">
                         <span class="team-role-tag">Role 03</span>
                         <h3 class="team-role-title">Full-code розробник</h3>
                         <p class="team-role-copy">Робить кастомні рішення, інтеграції, оптимізацію швидкості та складну бізнес-логіку, коли конструкторів вже мало.</p>
                         <div class="team-role-result">Результат: масштабований продукт без технічних обмежень.</div>
+                        </div>
                     </article>
                 </div>
 
