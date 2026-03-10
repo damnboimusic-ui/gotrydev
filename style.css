@@ -71,7 +71,9 @@ Tags: landing, web-development, glassmorphism, modern
     --layout-sidebar-width: 54px;
     --layout-inline-gutter: clamp(16px, 2vw, 24px);
     --layout-sidebar-width-mobile: 40px;
-    --layout-inline-gutter-mobile: 12px;
+    --layout-inline-gutter-mobile: 16px;
+    --layout-header-height: 54px;
+    --layout-header-height-mobile: 48px;
     
     /* Breakpoints */
     --breakpoint-mobile: 768px;
@@ -159,6 +161,7 @@ body.home {
     background: #f5f3f7;
     --layout-sidebar-width: 54px;
     --layout-inline-gutter: clamp(16px, 2vw, 24px);
+    --layout-header-height: 54px;
 }
 
 /* Скрываем стандартные header и footer */
@@ -485,9 +488,9 @@ body.home .top-nav {
     backdrop-filter: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    height: 54px !important; /* Fixed height - NEVER changes */
-    min-height: 54px !important;
-    max-height: 54px !important;
+    height: var(--layout-header-height) !important; /* Fixed height */
+    min-height: var(--layout-header-height) !important;
+    max-height: var(--layout-header-height) !important;
     transition: none !important; /* No transitions */
     border: none !important; /* No border - divider line handles it */
     z-index: 1000 !important;
@@ -505,7 +508,7 @@ body.home .top-nav {
 /* Logo - right after hamburger, with right border line */
 .header-logo {
     flex-shrink: 0;
-    height: 54px;
+    height: var(--layout-header-height);
     display: flex;
     align-items: center;
     padding: 0 var(--layout-inline-gutter); /* Padding around logo */
@@ -536,7 +539,7 @@ body.home .header-logo .logo-img {
 /* Right Content - Greeting + Button with symmetric padding matching logo padding */
 .header-right {
     flex-shrink: 0;
-    height: 54px;
+    height: var(--layout-header-height);
     display: flex;
     align-items: center;
     gap: 16px;
@@ -558,7 +561,7 @@ body.home .top-nav .header-right {
     background: #1D1D1D; /* Dark color like reference */
     margin: 0;
     position: absolute;
-    bottom: 0; /* Exactly at bottom of 54px header */
+    bottom: 0; /* Exactly at bottom of header */
     left: calc(-1 * var(--layout-sidebar-width)); /* Start from viewport left edge */
     z-index: 1;
     pointer-events: none; /* Don't interfere with clicks */
@@ -1829,6 +1832,7 @@ body.home .wide-container {
     body.home {
         --layout-sidebar-width: var(--layout-sidebar-width-mobile);
         --layout-inline-gutter: var(--layout-inline-gutter-mobile);
+        --layout-header-height: var(--layout-header-height-mobile);
     }
     /* Hero section - adjust padding for mobile */
     .hero-section {
@@ -2089,8 +2093,8 @@ body.home .wide-container {
     }
     
     .header-side .hamburger-menu {
-        width: 40px;
-        height: 40px;
+        width: var(--layout-sidebar-width);
+        height: var(--layout-header-height);
     }
     
     .header-side .hamburger-menu div {
@@ -2136,8 +2140,8 @@ body.home .wide-container {
     }
     
     .sidebar-right-line {
-        top: 40px;
-        height: calc(100vh - 40px);
+        top: var(--layout-header-height);
+        height: calc(100vh - var(--layout-header-height));
     }
     
     .header-side .scroll-indicator {
@@ -2152,13 +2156,13 @@ body.home .wide-container {
     /* Header - adjust for smaller sidebar */
     body.home .top-nav {
         left: var(--layout-sidebar-width) !important;
-        height: 40px !important;
-        min-height: 40px !important;
-        max-height: 40px !important;
+        height: var(--layout-header-height) !important;
+        min-height: var(--layout-header-height) !important;
+        max-height: var(--layout-header-height) !important;
     }
     
     body.home .header-logo {
-        height: 40px;
+        height: var(--layout-header-height);
         padding: 0 var(--layout-inline-gutter);
     }
     
@@ -2167,7 +2171,7 @@ body.home .wide-container {
     }
     
     .header-right {
-        height: 40px;
+        height: var(--layout-header-height);
         padding-right: var(--layout-inline-gutter);
         gap: 12px;
     }
@@ -2182,7 +2186,7 @@ body.home .wide-container {
         width: auto;
         max-width: calc(100vw - var(--layout-sidebar-width));
         margin-left: var(--layout-sidebar-width);
-        margin-top: 40px;
+        margin-top: var(--layout-header-height);
     }
     
     /* Contact section - adjust for mobile */
@@ -2357,8 +2361,8 @@ body.home .wide-container {
 
 /* Hamburger Menu - Top of Sidebar (54px height) - Only right and top borders */
 .header-side .hamburger-menu {
-    width: 54px;
-    height: 54px;
+    width: var(--layout-sidebar-width);
+    height: var(--layout-header-height);
     position: relative;
     border-right: none;
     border-top: none;
@@ -2577,7 +2581,7 @@ body.home .wide-container {
     min-height: auto;
     margin-left: var(--layout-sidebar-width); /* Space for sidebar */
     margin-right: 0; /* No right margin - stretch to edge */
-    margin-top: 54px; /* Space for fixed header (54px height) */
+    margin-top: var(--layout-header-height); /* Space for fixed header */
     padding-top: 0; /* No padding - margin handles spacing */
     padding-left: 0; /* No padding - wide-container handles it */
     padding-right: 0; /* No padding - wide-container handles it */
@@ -2698,3 +2702,62 @@ body.menu-open .site-menu-backdrop {
 /* Hero section - content boundaries handled by body.home .wide-container above */
 
 /* All animations removed - elements are always visible and static */
+
+/* Final mobile geometry overrides (must stay at file end) */
+@media (max-width: 768px) {
+    body.home {
+        --layout-sidebar-width: var(--layout-sidebar-width-mobile);
+        --layout-inline-gutter: var(--layout-inline-gutter-mobile);
+        --layout-header-height: var(--layout-header-height-mobile);
+    }
+
+    .header-side {
+        flex: 0 0 var(--layout-sidebar-width);
+        width: var(--layout-sidebar-width);
+    }
+
+    .header-side .hamburger-menu {
+        width: var(--layout-sidebar-width);
+        height: var(--layout-header-height);
+    }
+
+    body.home .top-nav {
+        left: var(--layout-sidebar-width) !important;
+        height: var(--layout-header-height) !important;
+        min-height: var(--layout-header-height) !important;
+        max-height: var(--layout-header-height) !important;
+    }
+
+    body.home .header-logo {
+        height: var(--layout-header-height);
+        padding: 0 var(--layout-inline-gutter);
+    }
+
+    .header-right {
+        height: var(--layout-header-height);
+        padding-right: var(--layout-inline-gutter);
+    }
+
+    .header-divider {
+        width: calc(100% + var(--layout-sidebar-width));
+        left: calc(-1 * var(--layout-sidebar-width));
+    }
+
+    .main-content {
+        margin-left: var(--layout-sidebar-width);
+        margin-top: var(--layout-header-height);
+        max-width: calc(100vw - var(--layout-sidebar-width));
+    }
+
+    .site-footer-main {
+        width: calc(100% - var(--layout-sidebar-width));
+        margin-left: var(--layout-sidebar-width);
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .site-footer-main .wide-container {
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
+    }
+}
