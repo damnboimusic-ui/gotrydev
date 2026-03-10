@@ -299,6 +299,22 @@
         const cards = grid ? Array.from(grid.querySelectorAll('.process-card')) : [];
         if (!section || !grid || !cards.length) return;
 
+        const existingLayer = grid.querySelector('.process-node-layer');
+        if (existingLayer) {
+            existingLayer.remove();
+        }
+
+        const nodeLayer = document.createElement('div');
+        nodeLayer.className = 'process-node-layer';
+        grid.appendChild(nodeLayer);
+
+        const nodes = cards.map(() => {
+            const node = document.createElement('span');
+            node.className = 'process-node';
+            nodeLayer.appendChild(node);
+            return node;
+        });
+
         function clamp(value, min, max) {
             return Math.max(min, Math.min(max, value));
         }
@@ -306,6 +322,13 @@
         function updateTimeline() {
             const sectionRect = section.getBoundingClientRect();
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const gridRect = grid.getBoundingClientRect();
+
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                const y = (cardRect.top - gridRect.top) + 30;
+                nodes[index].style.top = `${y}px`;
+            });
 
             // Start filling when section enters viewport and finish near section end.
             const startPoint = viewportHeight * 0.78;
@@ -324,6 +347,7 @@
 
             cards.forEach((card, index) => {
                 card.classList.toggle('is-active', index <= activeIndex);
+                nodes[index].classList.toggle('is-active', index <= activeIndex);
             });
         }
 

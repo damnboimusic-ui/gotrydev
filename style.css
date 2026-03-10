@@ -2029,24 +2029,9 @@ body.home .wide-container {
     margin-left: auto;
 }
 
+/* Timeline nodes are rendered on the center line via JS (.process-node-layer) */
 .process-card::before {
-    content: '';
-    position: absolute;
-    top: 30px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #8a8890;
-    box-shadow: 0 0 0 4px rgba(29, 29, 29, 0.06);
-    transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
-}
-
-.process-card:nth-child(odd)::before {
-    right: -36px;
-}
-
-.process-card:nth-child(even)::before {
-    left: -36px;
+    content: none;
 }
 
 .process-card:hover {
@@ -2058,12 +2043,6 @@ body.home .wide-container {
     background: #ffffff;
     border-color: rgba(29, 29, 29, 0.64);
     box-shadow: 0 12px 24px rgba(29, 29, 29, 0.11);
-}
-
-.process-card.is-active::before {
-    background: #1D1D1D;
-    transform: scale(1.16);
-    box-shadow: 0 0 0 5px rgba(29, 29, 29, 0.15);
 }
 
 .process-index {
@@ -2078,6 +2057,31 @@ body.home .wide-container {
 
 .process-card.is-active .process-index {
     color: #1D1D1D;
+}
+
+.process-node-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.process-node {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #8a8890;
+    box-shadow: 0 0 0 6px rgba(29, 29, 29, 0.09);
+    transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.process-node.is-active {
+    background: #1D1D1D;
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 0 7px rgba(29, 29, 29, 0.16);
 }
 
 .process-step-title {
@@ -2909,11 +2913,13 @@ body.home .wide-container {
         padding: 20px 16px;
     }
 
-    .process-card::before,
-    .process-card:nth-child(odd)::before,
-    .process-card:nth-child(even)::before {
-        left: -22px;
-        right: auto;
+    .process-node {
+        left: 8px;
+        transform: translate(-50%, -50%);
+    }
+
+    .process-node.is-active {
+        transform: translate(-50%, -50%) scale(1.06);
     }
 
     .contact-section {
