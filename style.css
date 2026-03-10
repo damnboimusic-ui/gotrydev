@@ -1748,6 +1748,16 @@ body.home .wide-container {
     position: relative;
 }
 
+.team-scroll-track {
+    position: relative;
+    min-height: 1300px;
+}
+
+.team-sticky-shell {
+    position: sticky;
+    top: calc(var(--layout-header-height) + 24px);
+}
+
 .team-header {
     max-width: 980px;
     margin-bottom: 42px;
@@ -1836,7 +1846,7 @@ body.home .wide-container {
 .team-focus-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.55) 46%, rgba(0, 0, 0, 0.86) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.62) 46%, rgba(0, 0, 0, 0.9) 100%);
 }
 
 .team-focus-content {
@@ -1853,11 +1863,12 @@ body.home .wide-container {
 }
 
 .team-focus-quote {
-    font-size: clamp(22px, 2.5vw, 44px);
-    line-height: 1.2;
+    font-size: clamp(22px, 2.4vw, 40px);
+    line-height: 1.18;
     color: #fff;
     letter-spacing: -0.02em;
     margin-bottom: 22px;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
 }
 
 .team-focus-meta {
@@ -1867,15 +1878,17 @@ body.home .wide-container {
 }
 
 .team-focus-meta strong {
-    font-size: 32px;
+    font-size: clamp(26px, 2.6vw, 36px);
     line-height: 1.1;
     color: #fff;
     letter-spacing: -0.02em;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.42);
 }
 
 .team-focus-meta span {
-    font-size: 18px;
+    font-size: clamp(15px, 1.4vw, 19px);
     color: rgba(255, 255, 255, 0.78);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
 }
 
 .team-footer-line {
@@ -2736,6 +2749,15 @@ body.home .wide-container {
 
     .team-section {
         margin-top: 80px;
+    }
+
+    .team-scroll-track {
+        min-height: auto;
+    }
+
+    .team-sticky-shell {
+        position: static;
+        top: auto;
     }
 
     .team-header {

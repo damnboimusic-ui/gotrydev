@@ -567,58 +567,62 @@ get_header();
         <!-- Team Section -->
         <section class="team-section" id="team">
             <div class="wide-container">
-                <div class="team-header">
-                    <span class="team-kicker">Команда</span>
-                    <h2 class="team-title">Дизайн і розробка працюють як один механізм.</h2>
-                    <p class="team-description">Зробили концепт у стилі референсу: структурний список ролей зверху та один великий фокус-блок з фото та контрастним текстом.</p>
-                </div>
-
-                <div class="team-roster">
-                    <div class="team-roster-row">
-                        <span class="team-roster-name">Креативний дизайнер</span>
-                        <span class="team-roster-role">Сайти, сторітелінг, концепти</span>
-                    </div>
-                    <div class="team-roster-row">
-                        <span class="team-roster-name">Senior бренд-дизайнер</span>
-                        <span class="team-roster-role">Логобуки, брендбуки, айдентика</span>
-                    </div>
-                    <div class="team-roster-row">
-                        <span class="team-roster-name">Web Developer</span>
-                        <span class="team-roster-role">WordPress + Elementor</span>
-                    </div>
-                    <div class="team-roster-row">
-                        <span class="team-roster-name">E-commerce Developer</span>
-                        <span class="team-roster-role">OpenCart, каталог, checkout</span>
-                    </div>
-                    <div class="team-roster-row">
-                        <span class="team-roster-name">Full-code Developer</span>
-                        <span class="team-roster-role">Кастомна логіка, API, performance</span>
-                    </div>
-                </div>
-
-                <article class="team-focus-card">
-                    <div class="team-focus-media">
-                        <img
-                            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
-                            alt="Команда на стратегічній сесії"
-                            class="team-focus-photo"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div class="team-focus-overlay"></div>
-                    <div class="team-focus-content">
-                        <p class="team-focus-quote">
-                            Ми поєднуємо креатив, бренд та інженерію так, щоб сайт виглядав преміально, швидко запускався і ріс у конверсії.
-                        </p>
-                        <p class="team-focus-quote">
-                            Працюємо від концепту до production: WordPress, Elementor, OpenCart та full-code для складних задач.
-                        </p>
-                        <div class="team-focus-meta">
-                            <strong>Команда Gotry</strong>
-                            <span>Design • Brand • Web • OpenCart • Full-code</span>
+                <div class="team-scroll-track">
+                    <div class="team-sticky-shell">
+                        <div class="team-header">
+                            <span class="team-kicker">Команда</span>
+                            <h2 class="team-title">Дизайн і розробка працюють як один механізм.</h2>
+                            <p class="team-description">Sticky-блок з фокусом на ролях команди: 2 дизайнери + 3 розробники, включно з OpenCart.</p>
                         </div>
+
+                        <div class="team-roster">
+                            <div class="team-roster-row">
+                                <span class="team-roster-name">Креативний дизайнер</span>
+                                <span class="team-roster-role">Сайти, сторітелінг, концепти</span>
+                            </div>
+                            <div class="team-roster-row">
+                                <span class="team-roster-name">Senior бренд-дизайнер</span>
+                                <span class="team-roster-role">Логобуки, брендбуки, айдентика</span>
+                            </div>
+                            <div class="team-roster-row">
+                                <span class="team-roster-name">Web Developer</span>
+                                <span class="team-roster-role">WordPress + Elementor</span>
+                            </div>
+                            <div class="team-roster-row">
+                                <span class="team-roster-name">E-commerce Developer</span>
+                                <span class="team-roster-role">OpenCart, каталог, checkout</span>
+                            </div>
+                            <div class="team-roster-row">
+                                <span class="team-roster-name">Full-code Developer</span>
+                                <span class="team-roster-role">Кастомна логіка, API, performance</span>
+                            </div>
+                        </div>
+
+                        <article class="team-focus-card">
+                            <div class="team-focus-media">
+                                <img
+                                    src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
+                                    alt="Команда на стратегічній сесії"
+                                    class="team-focus-photo"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="team-focus-overlay"></div>
+                            <div class="team-focus-content">
+                                <p class="team-focus-quote">
+                                    Ми поєднуємо креатив, бренд та інженерію так, щоб сайт виглядав преміально, швидко запускався і ріс у конверсії.
+                                </p>
+                                <p class="team-focus-quote">
+                                    Працюємо від концепту до production: WordPress, Elementor, OpenCart та full-code для складних задач.
+                                </p>
+                                <div class="team-focus-meta">
+                                    <strong>Команда Gotry</strong>
+                                    <span>Design • Brand • Web • OpenCart • Full-code</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                </article>
+                </div>
 
                 <div class="team-footer-line">
                     <span>Один контакт</span>
