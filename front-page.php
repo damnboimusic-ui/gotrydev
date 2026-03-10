@@ -571,8 +571,8 @@ get_header();
                     <div class="team-sticky-shell">
                         <div class="team-header">
                             <span class="team-kicker">Команда</span>
-                            <h2 class="team-title">Дизайн і розробка працюють як один механізм.</h2>
-                            <p class="team-description">Sticky-блок з фокусом на ролях команди: 2 дизайнери + 3 розробники, включно з OpenCart.</p>
+                            <h2 class="team-title">Команда, що перетворює ідею на сильний цифровий продукт.</h2>
+                            <p class="team-description">2 дизайнери та 3 розробники: від креативної концепції й брендбуку до WordPress, OpenCart і full-code реалізації.</p>
                         </div>
 
                         <div class="team-roster">
