@@ -64,10 +64,14 @@ Tags: landing, web-development, glassmorphism, modern
     --spacing-3xl: 80px;
     
     /* Containers */
-    --container-max-width: 1280px;
+    --container-max-width: 1440px;
     --container-padding-mobile: 20px;
-    --container-padding-tablet: 40px;
-    --container-padding-desktop: clamp(20px, 5vw, 80px);
+    --container-padding-tablet: 32px;
+    --container-padding-desktop: 48px;
+    --layout-sidebar-width: 54px;
+    --layout-inline-gutter: clamp(16px, 2vw, 24px);
+    --layout-sidebar-width-mobile: 40px;
+    --layout-inline-gutter-mobile: 12px;
     
     /* Breakpoints */
     --breakpoint-mobile: 768px;
@@ -153,6 +157,8 @@ body {
 
 body.home {
     background: #f5f3f7;
+    --layout-sidebar-width: 54px;
+    --layout-inline-gutter: clamp(16px, 2vw, 24px);
 }
 
 /* Скрываем стандартные header и footer */
@@ -170,11 +176,11 @@ body.home .site-footer {
    ============================================ */
 .wide-container {
     width: 100%;
-    max-width: 1440px;
+    max-width: var(--container-max-width);
     margin-left: auto;
     margin-right: auto;
-    padding-left: clamp(40px, 5vw, 120px);
-    padding-right: clamp(40px, 5vw, 120px);
+    padding-left: var(--layout-inline-gutter);
+    padding-right: var(--layout-inline-gutter);
     box-sizing: border-box;
     position: relative;
 }
@@ -471,8 +477,8 @@ body.home .top-nav .header-content-wrapper .wide-container {
 body.home .top-nav {
     position: fixed !important; /* Force fixed - NEVER changes */
     top: 0 !important;
-    left: 54px !important; /* Start after sidebar (54px) */
-    right: 0 !important; /* Stretch to right edge - no need for calc(100vw - 54px) */
+    left: var(--layout-sidebar-width) !important; /* Start after sidebar */
+    right: 0 !important; /* Stretch to the viewport right edge */
     width: auto !important; /* Auto width - right: 0 handles it */
     max-width: none !important; /* No max-width */
     background: transparent !important; /* Always transparent - NEVER changes */
@@ -502,7 +508,7 @@ body.home .top-nav {
     height: 54px;
     display: flex;
     align-items: center;
-    padding: 0 clamp(16px, 2vw, 24px); /* Padding around logo */
+    padding: 0 var(--layout-inline-gutter); /* Padding around logo */
     border-right: none; /* No right border line */
     box-sizing: border-box;
 }
@@ -534,7 +540,7 @@ body.home .header-logo .logo-img {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding-right: clamp(16px, 2vw, 24px); /* Symmetric to logo padding - creates logical symmetry */
+    padding-right: var(--layout-inline-gutter); /* Symmetric to logo padding - creates logical symmetry */
     padding-left: 0; /* No left padding - spacer fills all space */
     box-sizing: border-box;
     position: relative;
@@ -547,13 +553,13 @@ body.home .top-nav .header-right {
 
 /* Header divider line - dark color, extends full width including hamburger area */
 .header-divider {
-    width: calc(100% + 54px); /* Full width of header (100%) + sidebar width (54px) to include hamburger area */
+    width: calc(100% + var(--layout-sidebar-width)); /* Include sidebar width */
     height: 1px;
     background: #1D1D1D; /* Dark color like reference */
     margin: 0;
     position: absolute;
     bottom: 0; /* Exactly at bottom of 54px header */
-    left: -54px; /* Start from left edge of viewport (54px before header starts) to include hamburger area */
+    left: calc(-1 * var(--layout-sidebar-width)); /* Start from viewport left edge */
     z-index: 1;
     pointer-events: none; /* Don't interfere with clicks */
 }
@@ -625,17 +631,15 @@ body.home .hero-section {
 }
 
 /* Wide container for home page - aligns with logo left edge and symmetric right padding */
-/* Note: main-content already has margin-left: 54px, so we only add logo padding here */
+/* Note: main-content offset is controlled by --layout-sidebar-width */
 body.home .hero-section .wide-container,
 body.home .wide-container {
     width: 100%;
-    max-width: calc(100vw - 54px);
+    max-width: calc(100vw - var(--layout-sidebar-width));
     margin-left: 0;
     margin-right: 0;
-    /* Left padding: only logo padding (clamp(16px, 2vw, 24px)) - main-content margin-left handles sidebar offset */
-    padding-left: clamp(16px, 2vw, 24px); /* Aligns with logo left edge (54px sidebar + this padding) */
-    /* Right padding symmetric to logo padding (clamp(16px, 2vw, 24px)) - creates logical symmetry */
-    padding-right: clamp(16px, 2vw, 24px); /* Symmetric to logo padding */
+    padding-left: var(--layout-inline-gutter); /* Aligns with logo left edge */
+    padding-right: var(--layout-inline-gutter); /* Symmetric to logo padding */
     box-sizing: border-box;
     overflow: visible;
     position: static;
@@ -1297,8 +1301,8 @@ body.home .wide-container {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
-    padding-left: clamp(16px, 2vw, 24px);
-    padding-right: clamp(16px, 2vw, 24px);
+    padding-left: var(--layout-inline-gutter);
+    padding-right: var(--layout-inline-gutter);
     box-sizing: border-box;
     overflow: visible;
     position: static;
@@ -1503,8 +1507,8 @@ body.home .wide-container {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
-    padding-left: clamp(16px, 2vw, 24px);
-    padding-right: clamp(16px, 2vw, 24px);
+    padding-left: var(--layout-inline-gutter);
+    padding-right: var(--layout-inline-gutter);
     box-sizing: border-box;
     overflow: visible;
     position: static;
@@ -1683,8 +1687,8 @@ body.home .wide-container {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
-    padding-left: clamp(16px, 2vw, 24px);
-    padding-right: clamp(16px, 2vw, 24px);
+    padding-left: var(--layout-inline-gutter);
+    padding-right: var(--layout-inline-gutter);
     box-sizing: border-box;
     overflow: visible;
     position: static;
@@ -1758,9 +1762,10 @@ body.home .wide-container {
 
 /* Footer */
 .site-footer-main {
-    width: calc(100% - 54px); /* Full width minus sidebar - same as main-content */
-    margin-left: 54px; /* Space for sidebar - same as main-content */
-    padding: 48px 0;
+    width: calc(100% - var(--layout-sidebar-width)); /* Full width minus sidebar */
+    margin-left: var(--layout-sidebar-width); /* Space for sidebar */
+    padding-top: 48px;
+    padding-bottom: 40px;
     background: #f5f3f7;
     border-top: 1px solid #1D1D1D;
     box-sizing: border-box;
@@ -1771,8 +1776,8 @@ body.home .wide-container {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
-    padding-left: clamp(16px, 2vw, 24px);
-    padding-right: clamp(16px, 2vw, 24px);
+    padding-left: var(--layout-inline-gutter);
+    padding-right: var(--layout-inline-gutter);
     box-sizing: border-box;
 }
 
@@ -1812,8 +1817,19 @@ body.home .wide-container {
     opacity: 0.6;
 }
 
+@media (max-width: 1100px) and (min-width: 769px) {
+    .site-footer-main {
+        padding-top: 32px;
+        padding-bottom: 28px;
+    }
+}
+
 /* Responsive - Konpo Style */
 @media (max-width: 768px) {
+    body.home {
+        --layout-sidebar-width: var(--layout-sidebar-width-mobile);
+        --layout-inline-gutter: var(--layout-inline-gutter-mobile);
+    }
     /* Hero section - adjust padding for mobile */
     .hero-section {
         padding: 80px 0 40px;
@@ -1821,9 +1837,9 @@ body.home .wide-container {
     
     body.home .hero-section .wide-container,
     body.home .wide-container {
-        padding-left: 12px;
-        padding-right: 12px;
-        max-width: calc(100vw - 40px);
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
+        max-width: calc(100vw - var(--layout-sidebar-width));
     }
     
     .projects-grid {
@@ -1938,8 +1954,8 @@ body.home .wide-container {
     }
     
     body.home .hero-section .wide-container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
     }
     
     .projects-section {
@@ -1994,8 +2010,8 @@ body.home .wide-container {
     }
     
     .services-section .wide-container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
     }
     
     .service-card:nth-child(1) {
@@ -2135,7 +2151,7 @@ body.home .wide-container {
     
     /* Header - adjust for smaller sidebar */
     body.home .top-nav {
-        left: 40px !important;
+        left: var(--layout-sidebar-width) !important;
         height: 40px !important;
         min-height: 40px !important;
         max-height: 40px !important;
@@ -2143,7 +2159,7 @@ body.home .wide-container {
     
     body.home .header-logo {
         height: 40px;
-        padding: 0 12px;
+        padding: 0 var(--layout-inline-gutter);
     }
     
     body.home .header-logo .logo-img {
@@ -2152,20 +2168,20 @@ body.home .wide-container {
     
     .header-right {
         height: 40px;
-        padding-right: 12px;
+        padding-right: var(--layout-inline-gutter);
         gap: 12px;
     }
     
     .header-divider {
-        width: calc(100% + 40px);
-        left: -40px;
+        width: calc(100% + var(--layout-sidebar-width));
+        left: calc(-1 * var(--layout-sidebar-width));
     }
     
     /* Main content - adjust for smaller sidebar */
     .main-content {
         width: auto;
-        max-width: calc(100vw - 40px);
-        margin-left: 40px;
+        max-width: calc(100vw - var(--layout-sidebar-width));
+        margin-left: var(--layout-sidebar-width);
         margin-top: 40px;
     }
     
@@ -2176,8 +2192,8 @@ body.home .wide-container {
     }
     
     .contact-section .wide-container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
     }
     
     .contact-title {
@@ -2214,8 +2230,8 @@ body.home .wide-container {
     }
     
     .social-links-section .wide-container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
     }
     
     .social-links-grid {
@@ -2251,9 +2267,10 @@ body.home .wide-container {
     }
     
     .site-footer-main {
-        width: calc(100% - 40px); /* Full width minus smaller sidebar */
-        margin-left: 40px; /* Space for smaller sidebar */
-        padding: 32px 0;
+        width: calc(100% - var(--layout-sidebar-width));
+        margin-left: var(--layout-sidebar-width);
+        padding-top: 24px;
+        padding-bottom: 24px;
     }
     
     .footer-content {
@@ -2274,8 +2291,8 @@ body.home .wide-container {
     }
     
     .site-footer-main .wide-container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: var(--layout-inline-gutter);
+        padding-right: var(--layout-inline-gutter);
     }
     
     /* Additional mobile optimizations */
@@ -2558,7 +2575,7 @@ body.home .wide-container {
     flex: 1;
     width: auto;
     min-height: auto;
-    margin-left: 54px; /* Space for sidebar */
+    margin-left: var(--layout-sidebar-width); /* Space for sidebar */
     margin-right: 0; /* No right margin - stretch to edge */
     margin-top: 54px; /* Space for fixed header (54px height) */
     padding-top: 0; /* No padding - margin handles spacing */
@@ -2566,7 +2583,7 @@ body.home .wide-container {
     padding-right: 0; /* No padding - wide-container handles it */
     position: static;
     box-sizing: border-box;
-    max-width: calc(100vw - 54px);
+    max-width: calc(100vw - var(--layout-sidebar-width));
     overflow: visible;
 }
 
