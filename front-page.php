@@ -73,6 +73,8 @@ $booking_url = gotry_get_booking_url();
                 <a href="#offer" class="site-menu-link">Формати</a>
                 <a href="#services" class="site-menu-link">Послуги</a>
                 <a href="#team" class="site-menu-link">Команда</a>
+                <a href="#process" class="site-menu-link">Процес</a>
+                <a href="#faq" class="site-menu-link">FAQ</a>
                 <a href="#contact" class="site-menu-link">Бриф</a>
             </nav>
             <div class="site-menu-footer">
