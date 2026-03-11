@@ -52,65 +52,91 @@
     }, 1000);
 })();
 
-// Sticky navigation scroll effect (як на референсі)
+// Greeting + scroll indicator
 (function() {
-    const topNav = document.getElementById('topNav');
-    if (!topNav) return;
-    
-    function updateNav() {
-        const scrollY = window.scrollY || window.pageYOffset;
-        if (scrollY > 50) {
-            topNav.classList.add('scrolled');
-        } else {
-            topNav.classList.remove('scrolled');
-        }
-    }
-    
-    // Використовуємо Lenis scroll event, якщо доступний
-    if (window.lenis) {
-        window.lenis.on('scroll', updateNav);
-    } else {
-        // Fallback на window scroll
-        window.addEventListener('scroll', updateNav);
-    }
-    
-    // Початкова перевірка
-    updateNav();
-})();
+    function initHeaderUtilities() {
+        const greetingText = document.getElementById('greeting-text');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const scrollDot = document.querySelector('.scroll-dot-top');
 
-// Smooth scroll для навігаційних посилань
-(function() {
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || !href) return;
-            
-            const target = document.querySelector(href);
-            if (!target) return;
-            
-            e.preventDefault();
-            
-            // Використовуємо Lenis для smooth scroll, якщо доступний
-            if (window.lenis) {
-                window.lenis.scrollTo(target, {
-                    offset: -80, // Враховуємо висоту навігації
-                    duration: 1.2
-                });
-            } else {
-                // Fallback на стандартний scroll
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+        if (greetingText) {
+            const hour = new Date().getHours();
+            let greeting = 'Добрий день!';
+            if (hour >= 5 && hour < 12) greeting = 'Доброго ранку!';
+            if (hour >= 12 && hour < 18) greeting = 'Добрий день!';
+            if (hour >= 18 && hour < 22) greeting = 'Добрий вечір!';
+            if (hour >= 22 || hour < 5) greeting = 'Доброї ночі!';
+            greetingText.textContent = greeting;
+        }
+
+        if (scrollIndicator && scrollDot) {
+            function updateScrollIndicator() {
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollableHeight = Math.max(documentHeight - windowHeight, 1);
+                const scrollPercent = Math.min(scrollTop / scrollableHeight, 1);
+                const lineHeight = 220;
+                const totalDotSize = 33.4;
+                const maxMove = lineHeight - totalDotSize;
+                const dotPosition = scrollPercent * maxMove;
+                scrollDot.style.top = `${dotPosition}px`;
+            }
+
+            let ticking = false;
+            function requestIndicatorUpdate() {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    updateScrollIndicator();
+                    ticking = false;
                 });
             }
-            
-            // Оновлюємо активний стан навігації
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
+
+            window.addEventListener('scroll', requestIndicatorUpdate, { passive: true });
+            window.addEventListener('resize', requestIndicatorUpdate, { passive: true });
+            if (window.lenis) {
+                window.lenis.on('scroll', requestIndicatorUpdate);
+            }
+            updateScrollIndicator();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeaderUtilities);
+    } else {
+        initHeaderUtilities();
+    }
+})();
+
+// Smooth scroll for in-page links
+(function() {
+    function initSmoothAnchors() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        const offset = -76;
+
+        links.forEach((link) => {
+            link.addEventListener('click', (event) => {
+                const href = link.getAttribute('href');
+                if (!href || href === '#') return;
+                const target = document.querySelector(href);
+                if (!target) return;
+
+                event.preventDefault();
+                if (window.lenis) {
+                    window.lenis.scrollTo(target, { offset, duration: 1.05 });
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSmoothAnchors);
+    } else {
+        initSmoothAnchors();
+    }
 })();
 
 // Minimal menu toggle
@@ -148,6 +174,61 @@
     closeBtn.addEventListener('click', closeMenu);
     backdrop.addEventListener('click', closeMenu);
     menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+})();
+
+// Conversion CTA tracking hooks
+(function() {
+    function pushDataLayer(eventName, payload) {
+        if (Array.isArray(window.dataLayer)) {
+            window.dataLayer.push(Object.assign({ event: eventName }, payload));
+        }
+    }
+
+    function trackEvent(eventName, payload) {
+        window.dispatchEvent(new CustomEvent('gotry:track', { detail: { event: eventName, payload } }));
+        pushDataLayer(eventName, payload);
+    }
+
+    function initCtaTracking() {
+        document.addEventListener('click', (event) => {
+            const element = event.target.closest('[data-cta]');
+            if (!element) return;
+
+            const cta = element.getAttribute('data-cta');
+            const href = element.getAttribute('href') || '';
+            const payload = {
+                cta,
+                href,
+                label: (element.textContent || '').trim().slice(0, 80)
+            };
+
+            if (cta === 'book-call') {
+                trackEvent('book_call_click', payload);
+                if (href && !href.startsWith('#')) {
+                    trackEvent('book_call_open', payload);
+                }
+                return;
+            }
+
+            if (cta === 'send-brief') {
+                trackEvent('brief_submit_click', payload);
+                return;
+            }
+
+            trackEvent('cta_click', payload);
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('contact_status') === 'success') {
+            trackEvent('brief_submit_success', { source: 'contact_form' });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCtaTracking);
+    } else {
+        initCtaTracking();
+    }
 })();
 
 // Swiper sliders for cases and projects

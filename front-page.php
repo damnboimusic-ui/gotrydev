@@ -5,6 +5,7 @@
  */
 
 get_header(); 
+$booking_url = gotry_get_booking_url();
 ?>
 
 <!-- Main Grid Container -->
@@ -43,11 +44,11 @@ get_header();
         <!-- Right Content - Greeting + Button (Right Edge) -->
         <div class="header-right">
             <span class="nav-greeting" id="greeting-text">Добрий вечір!</span>
-            <a href="#contact" class="nav-hire-btn">
+            <a href="#book-call" class="nav-hire-btn" data-cta="book-call">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M7 17L17 7M7 7h10v10"/>
                 </svg>
-                <span>Замовити</span>
+                <span>Забронювати дзвінок</span>
             </a>
         </div>
         
@@ -68,13 +69,15 @@ get_header();
             </div>
             <nav class="site-menu-links">
                 <a href="#hero" class="site-menu-link">Головна</a>
+                <a href="#cases" class="site-menu-link">Кейси</a>
+                <a href="#offer" class="site-menu-link">Формати</a>
                 <a href="#services" class="site-menu-link">Послуги</a>
                 <a href="#team" class="site-menu-link">Команда</a>
-                <a href="#contact" class="site-menu-link">Контакти</a>
+                <a href="#contact" class="site-menu-link">Бриф</a>
             </nav>
             <div class="site-menu-footer">
                 <span class="site-menu-note">Працюємо з фаундерами та командами, що люблять дизайн.</span>
-                <a href="#contact" class="site-menu-cta">Почати проєкт</a>
+                <a href="#book-call" class="site-menu-cta" data-cta="book-call">Забронювати дзвінок</a>
             </div>
         </div>
     </aside>
@@ -104,18 +107,29 @@ get_header();
                     
                     <!-- Description - centered below globe -->
                     <p class="hero-description">Gotry — це plug-and-play команда досвідчених дизайнерів для CXO, які знають, що дизайн — це несправедлива перевага.</p>
+                    <div class="hero-actions">
+                        <a href="#book-call" class="hero-cta hero-cta-primary" data-cta="book-call">
+                            <span>Забронювати дзвінок 30 хв</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M7 7h10v10"/>
+                            </svg>
+                        </a>
+                        <a href="#cases" class="hero-cta hero-cta-secondary" data-cta="view-cases">
+                            <span>Дивитись кейси</span>
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Cases Intro Blocks -->
-                <div class="cases-intro">
+                <div class="cases-intro" id="cases">
                     <div class="cases-intro-copy">
                         <span class="cases-kicker">Кейси</span>
-                        <h2 class="cases-title">Сміливі запуски, чистий UX, швидкі перемоги.</h2>
+                        <h2 class="cases-title">Публічні кейси: задача, рішення, результат.</h2>
                     </div>
                     <div class="cases-intro-actions">
-                        <p class="cases-note">Показуємо роботи, де дизайн вирішує бізнес-задачі та дає результат у цифрах.</p>
-                        <a href="#contact" class="cases-cta">
-                            <span>Порахувати проєкт</span>
+                        <p class="cases-note">Без випадкових цифр: фіксуємо тільки те, що можна показати і перевірити в live-проєктах.</p>
+                        <a href="#book-call" class="cases-cta" data-cta="book-call">
+                            <span>Обговорити свій кейс</span>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M7 17L17 7M7 7h10v10"/>
                             </svg>
@@ -123,57 +137,66 @@ get_header();
                     </div>
                 </div>
                 
-                <div class="cases-gallery swiper cases-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="case-panel case-panel-1">
-                                <span class="case-panel-tag">Фінтех</span>
-                                <span class="case-panel-title">Платіжний досвід</span>
-                                <span class="case-panel-caption">KYC, картки, миттєві перекази</span>
-                            </div>
+                <div class="cases-proof-grid">
+                    <article class="case-proof-card">
+                        <div class="case-proof-head">
+                            <span class="case-proof-logo">Surge AI</span>
+                            <span class="case-proof-type">B2B SaaS</span>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="case-panel case-panel-2">
-                                <span class="case-panel-tag">Медицина</span>
-                                <span class="case-panel-title">Платформа турботи</span>
-                                <span class="case-panel-caption">Емоційна підтримка + data UX</span>
-                            </div>
+                        <div class="case-proof-body">
+                            <p><strong>Задача:</strong> перезапустити маркетинговий сайт під enterprise-аудиторію.</p>
+                            <p><strong>Рішення:</strong> нова інформаційна архітектура, дизайн-система та конверсійний flow для demo.</p>
+                            <p><strong>Результат:</strong> зрозумілий value proposition, швидший пресейл-діалог і стабільний потік цільових запитів.</p>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="case-panel case-panel-3">
-                                <span class="case-panel-tag">SaaS</span>
-                                <span class="case-panel-title">Дашборд зростання</span>
-                                <span class="case-panel-caption">Активація, утримання, відтік</span>
-                            </div>
+                        <div class="case-proof-meta">
+                            <span>Термін: 8 тижнів</span>
+                            <span>Стек: Figma + WordPress</span>
                         </div>
-                    </div>
-                    <div class="swiper-controls">
-                        <button class="swiper-btn cases-prev" aria-label="Попередній кейс">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M15 18l-6-6 6-6"/>
-                            </svg>
-                        </button>
-                        <div class="swiper-pagination cases-pagination"></div>
-                        <button class="swiper-btn cases-next" aria-label="Наступний кейс">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 18l6-6-6-6"/>
-                            </svg>
-                        </button>
-                    </div>
+                    </article>
+                    <article class="case-proof-card">
+                        <div class="case-proof-head">
+                            <span class="case-proof-logo">amp</span>
+                            <span class="case-proof-type">Product Platform</span>
+                        </div>
+                        <div class="case-proof-body">
+                            <p><strong>Задача:</strong> зібрати єдиний UX для продуктового кабінету та маркетингових сторінок.</p>
+                            <p><strong>Рішення:</strong> уніфікована UI-мова, модульні компоненти та оновлений customer journey.</p>
+                            <p><strong>Результат:</strong> узгоджена продуктова подача, простіший онбординг і краща читабельність пропозиції.</p>
+                        </div>
+                        <div class="case-proof-meta">
+                            <span>Термін: 6 тижнів</span>
+                            <span>Стек: Figma + Front-end</span>
+                        </div>
+                    </article>
+                    <article class="case-proof-card">
+                        <div class="case-proof-head">
+                            <span class="case-proof-logo">Vectornator</span>
+                            <span class="case-proof-type">Creative Software</span>
+                        </div>
+                        <div class="case-proof-body">
+                            <p><strong>Задача:</strong> підсилити бренд і структуру контенту для масштабування e-commerce напрямку.</p>
+                            <p><strong>Рішення:</strong> бренд-апдейт, нова сітка контенту, оптимізація ключових e-commerce сторінок.</p>
+                            <p><strong>Результат:</strong> чіткіша продуктова комунікація та краща готовність до рекламного трафіку.</p>
+                        </div>
+                        <div class="case-proof-meta">
+                            <span>Термін: 10 тижнів</span>
+                            <span>Стек: Brand + OpenCart</span>
+                        </div>
+                    </article>
                 </div>
 
                 <div class="cases-metrics">
                     <div class="cases-metric">
-                        <span class="cases-metric-value">+42%</span>
-                        <span class="cases-metric-label">Зростання активації</span>
+                        <span class="cases-metric-value">Публічний формат</span>
+                        <span class="cases-metric-label">Показуємо лише відкриті кейси</span>
                     </div>
                     <div class="cases-metric">
-                        <span class="cases-metric-value">6 тижнів</span>
-                        <span class="cases-metric-label">До першого релізу</span>
+                        <span class="cases-metric-value">Full-cycle команда</span>
+                        <span class="cases-metric-label">Стратегія, дизайн, розробка, запуск</span>
                     </div>
                     <div class="cases-metric">
-                        <span class="cases-metric-value">3.2x</span>
-                        <span class="cases-metric-label">Виручка з продукту</span>
+                        <span class="cases-metric-value">Один контакт</span>
+                        <span class="cases-metric-label">Фаундер отримує прозорий процес</span>
                     </div>
                 </div>
                 
@@ -249,12 +272,12 @@ get_header();
                     <div class="about-content-wrapper">
                         <div class="about-content">
                             <p class="about-paragraph">
-                                З 2020 року я працюю зі <span class="about-link">стартапами</span>, <span class="about-link">агенціями</span>, <span class="about-link">фриланс-клієнтами</span>, роблю повний цикл розробки для <span class="about-link">SaaS-продуктів</span>, створюю <span class="about-link">бренд-системи</span>, будую продукти на <span class="about-link">no-code інструментах</span> та <span class="about-link">кастомних рішеннях</span>.
+                                З 2020 року працюємо зі <span class="about-link">стартапами</span> і <span class="about-link">SMB</span>, де сайт має не просто виглядати красиво, а закривати комерційну задачу: зріст запитів, якісні ліди, зрозумілий sales flow.
                             </p>
                             <p class="about-paragraph">
-                                Мої проєкти активно використовують клієнти й щиро люблять мої колективні мами, а ще їх відзначали <span class="about-link">Awwwards</span> і <span class="about-link">CSS Design Awards</span>, пережили критику на <span class="about-link">Product Hunt</span>, згадували в куточках <span class="about-link">HackerNews</span>, публікували на <span class="about-link">Behance</span> та піднімали на вершину <span class="about-link">Dribbble</span>.
+                                У нас одна команда на весь цикл: <span class="about-link">два дизайнери</span>, <span class="about-link">WordPress/OpenCart</span> розробка та <span class="about-link">full-code</span> для складної логіки. Це прибирає розрив між макетом і production.
                             </p>
-                            <p class="about-paragraph-short">Живу на перетині дизайну, коду та продукту.</p>
+                            <p class="about-paragraph-short">Дизайн і розробка працюють як один механізм.</p>
                         </div>
                         <div class="about-logos">
                         <!-- FWA Logo -->
@@ -317,6 +340,61 @@ get_header();
                 </section>
             </div>
         </section>
+
+        <!-- Offer Matrix Section -->
+        <section class="offer-section" id="offer">
+            <div class="wide-container">
+                <div class="offer-header">
+                    <span class="offer-kicker">Offer Matrix</span>
+                    <h2 class="offer-title">Формати співпраці під ваш етап росту</h2>
+                    <p class="offer-description">Модель hybrid: прозорі діапазони бюджету, фіксований результат на етап і зрозумілий scope до старту.</p>
+                </div>
+                <div class="offer-grid">
+                    <article class="offer-card">
+                        <div class="offer-card-head">
+                            <h3 class="offer-card-title">Launch Site</h3>
+                            <span class="offer-card-tag">Brand + Website</span>
+                        </div>
+                        <div class="offer-fields">
+                            <div class="offer-field"><span class="offer-field-label">Для кого</span><p class="offer-field-value">Фаундери, яким потрібен сильний запуск продукту або сервісу.</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Що входить</span><p class="offer-field-value">Позиціонування, структура сторінки, дизайн, верстка, QA, запуск.</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Термін</span><p class="offer-field-value">4-8 тижнів</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Бюджет від</span><p class="offer-field-value">$3 500</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Очікуваний результат</span><p class="offer-field-value">Сайт, який чітко продає пропозицію і веде до заявки.</p></div>
+                        </div>
+                        <a href="#book-call" class="offer-cta" data-cta="book-call">Забронювати дзвінок 30 хв</a>
+                    </article>
+                    <article class="offer-card">
+                        <div class="offer-card-head">
+                            <h3 class="offer-card-title">E-commerce</h3>
+                            <span class="offer-card-tag">WordPress / OpenCart</span>
+                        </div>
+                        <div class="offer-fields">
+                            <div class="offer-field"><span class="offer-field-label">Для кого</span><p class="offer-field-value">SMB, які запускають або перезбирають інтернет-магазин.</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Що входить</span><p class="offer-field-value">UX каталогу, картка товару, checkout, інтеграції та базова аналітика.</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Термін</span><p class="offer-field-value">6-10 тижнів</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Бюджет від</span><p class="offer-field-value">$5 000</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Очікуваний результат</span><p class="offer-field-value">Керований e-commerce фундамент для росту реклами й продажів.</p></div>
+                        </div>
+                        <a href="#book-call" class="offer-cta" data-cta="book-call">Забронювати дзвінок 30 хв</a>
+                    </article>
+                    <article class="offer-card">
+                        <div class="offer-card-head">
+                            <h3 class="offer-card-title">Custom Product</h3>
+                            <span class="offer-card-tag">Full-code + Integrations</span>
+                        </div>
+                        <div class="offer-fields">
+                            <div class="offer-field"><span class="offer-field-label">Для кого</span><p class="offer-field-value">Команди з нетиповою бізнес-логікою та API-інтеграціями.</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Що входить</span><p class="offer-field-value">Техпроєктування, кастомна розробка, інтеграції, performance та support.</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Термін</span><p class="offer-field-value">8-16 тижнів</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Бюджет від</span><p class="offer-field-value">$9 000</p></div>
+                            <div class="offer-field"><span class="offer-field-label">Очікуваний результат</span><p class="offer-field-value">Контрольована технічна база для масштабування без шаблонних обмежень.</p></div>
+                        </div>
+                        <a href="#book-call" class="offer-cta" data-cta="book-call">Забронювати дзвінок 30 хв</a>
+                    </article>
+                </div>
+            </div>
+        </section>
         
         <!-- Services Section - Moved outside hero-section for sticky to work -->
         <section class="services-section" id="services">
@@ -328,11 +406,11 @@ get_header();
                         <div class="service-card-inner">
                             <div class="service-card-header">
                                 <h3 class="service-card-title">Продуктовий дизайн</h3>
-                                <button class="service-card-action-btn" aria-label="Замовити">
+                                <a href="#book-call" class="service-card-action-btn" aria-label="Забронювати дзвінок" data-cta="book-call">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
@@ -372,11 +450,11 @@ get_header();
                         <div class="service-card-inner">
                             <div class="service-card-header">
                                 <h3 class="service-card-title">Дизайн-системи</h3>
-                                <button class="service-card-action-btn" aria-label="Замовити">
+                                <a href="#book-call" class="service-card-action-btn" aria-label="Забронювати дзвінок" data-cta="book-call">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
@@ -416,11 +494,11 @@ get_header();
                         <div class="service-card-inner">
                             <div class="service-card-header">
                                 <h3 class="service-card-title">Бренд-дизайн</h3>
-                                <button class="service-card-action-btn" aria-label="Замовити">
+                                <a href="#book-call" class="service-card-action-btn" aria-label="Забронювати дзвінок" data-cta="book-call">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
@@ -460,22 +538,22 @@ get_header();
                         <div class="service-card-inner">
                             <div class="service-card-header">
                                 <h3 class="service-card-title">Дизайн сайтів</h3>
-                                <button class="service-card-action-btn" aria-label="Замовити">
+                                <a href="#book-call" class="service-card-action-btn" aria-label="Забронювати дзвінок" data-cta="book-call">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <div class="service-card-divider"></div>
                             <div class="service-card-content">
                                 <p class="service-card-description">Ваш сайт має не лише гарно виглядати й швидко вантажитись. Він будує довіру, збирає кліки й ростить конверсію. Нагороди? Лише бонус.</p>
                                 <div class="service-card-footer">
-                                    <button class="service-card-learn-btn">
+                                    <a href="#book-call" class="service-card-learn-btn" data-cta="book-call">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        <span>Дізнатися більше</span>
-                                    </button>
+                                        <span>Забронювати дзвінок</span>
+                                    </a>
                                     <div class="service-card-pattern">
                                         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="3" fill="#E0D9ED"/>
@@ -540,8 +618,8 @@ get_header();
                                 <span class="studio-signature-point-text">Запуск і ріст конверсії</span>
                             </div>
                         </div>
-                        <a href="#contact" class="studio-signature-cta">
-                            <span>Обговорити проєкт</span>
+                        <a href="#book-call" class="studio-signature-cta" data-cta="book-call">
+                            <span>Забронювати дзвінок</span>
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -631,8 +709,8 @@ get_header();
                     <span>WordPress / Elementor / OpenCart</span>
                 </div>
 
-                <a href="#contact" class="team-cta">
-                    <span>Зібрати вашу команду під проєкт</span>
+                <a href="#book-call" class="team-cta" data-cta="book-call">
+                    <span>Забронювати дзвінок і стартувати</span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -673,10 +751,98 @@ get_header();
             </div>
         </section>
 
+        <!-- Fit / Anti-fit Section -->
+        <section class="fit-section" id="fit">
+            <div class="wide-container">
+                <div class="fit-shell">
+                    <div class="fit-column fit-good">
+                        <span class="fit-label">Ми підходимо</span>
+                        <ul class="fit-list">
+                            <li>Стартапам і SMB, яким потрібно більше цільових звернень із сайту.</li>
+                            <li>Командам, де є відповідальний за рішення та швидкий фідбек.</li>
+                            <li>Проєктам, де важливі бренд, швидкість запуску й технічна якість одночасно.</li>
+                        </ul>
+                    </div>
+                    <div class="fit-column fit-bad">
+                        <span class="fit-label">Ми не підходимо</span>
+                        <ul class="fit-list">
+                            <li>Якщо головний критерій: “дешево і на завтра”.</li>
+                            <li>Якщо немає відповідального з боку клієнта на контент і погодження.</li>
+                            <li>Якщо потрібна лише копія шаблону без стратегії та комерційної логіки.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="wide-container">
+                <div class="faq-header">
+                    <span class="faq-kicker">FAQ</span>
+                    <h2 class="faq-title">Питання, які закривають рішення перед стартом</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item" open>
+                        <summary>Які строки старту і релізу?</summary>
+                        <div class="faq-answer"><p>Після дзвінка фіксуємо scope і стартуємо зазвичай протягом 3-7 днів. Термін релізу залежить від формату: від 4 до 16 тижнів. <a href="#book-call" data-cta="book-call">Забронювати дзвінок</a>.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Як формується бюджет?</summary>
+                        <div class="faq-answer"><p>Працюємо за hybrid-моделлю: є діапазон “від”, а фінальна вартість залежить від обсягу інтеграцій, контенту і кількості екранів. <a href="#book-call" data-cta="book-call">Уточнити на дзвінку</a>.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Скільки раундів правок включено?</summary>
+                        <div class="faq-answer"><p>Кожен етап має заздалегідь погоджені раунди ревʼю. Це тримає дедлайни і не розмиває якість. <a href="#book-call" data-cta="book-call">Обговорити ваш процес</a>.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Кому належить дизайн і код після релізу?</summary>
+                        <div class="faq-answer"><p>Після оплати етапу передаємо вихідні матеріали, макети і кодову базу згідно з домовленим форматом у договорі.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Є підтримка після запуску?</summary>
+                        <div class="faq-answer"><p>Так, можемо вести проект у post-launch режимі: технічна підтримка, контентні правки, A/B-поліпшення конверсії.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Що потрібно від мене на старті?</summary>
+                        <div class="faq-answer"><p>Ціль бізнесу, продуктова пропозиція, поточні обмеження і один відповідальний контакт для оперативного рішень.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Call Section -->
+        <section class="book-call-section" id="book-call">
+            <div class="wide-container">
+                <div class="book-call-shell">
+                    <div class="book-call-copy">
+                        <span class="book-call-kicker">Primary CTA</span>
+                        <h2 class="book-call-title">Забронюйте 30 хв і отримайте чіткий план запуску</h2>
+                        <p class="book-call-description">На дзвінку розкладемо ваш проект по етапах: формат, реалістичні строки, бюджетний діапазон та найближчий план дій.</p>
+                    </div>
+                    <div class="book-call-actions">
+                        <a href="<?php echo esc_url($booking_url); ?>" target="_blank" rel="noopener noreferrer" class="book-call-primary" data-cta="book-call">
+                            <span>Відкрити календар</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M7 7h10v10"/>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer" class="book-call-secondary" data-cta="book-call">
+                            <span>Написати в Telegram</span>
+                        </a>
+                        <a href="#contact" class="book-call-tertiary" data-cta="send-brief">
+                            <span>Не готові до дзвінка? Надішліть бриф</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="contact-section" id="contact">
             <div class="wide-container">
-                <h2 class="contact-title">Працюймо разом</h2>
+                <h2 class="contact-title">Не готові до дзвінка? Надішліть бриф</h2>
+                <p class="contact-subtitle">Якщо зручніше в письмовому форматі, заповніть коротку форму і ми повернемось з конкретним планом.</p>
                 <div class="contact-divider"></div>
                 <div class="contact-wrapper">
                     <!-- Left: Contact Form -->
@@ -705,11 +871,11 @@ get_header();
                                 <label for="contact-message" class="contact-form-label">Повідомлення</label>
                                 <textarea id="contact-message" name="message" class="contact-form-textarea" rows="6" required></textarea>
                             </div>
-                            <button type="submit" class="contact-form-submit">
+                            <button type="submit" class="contact-form-submit" data-cta="send-brief">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M7 17L17 7M7 7h10v10"/>
                                 </svg>
-                                <span>Надіслати повідомлення</span>
+                                <span>Надіслати бриф</span>
                             </button>
                         </form>
                     </div>
@@ -737,74 +903,41 @@ get_header();
         <section class="social-links-section">
             <div class="wide-container">
                 <div class="social-links-grid">
-                    <!-- Awwwards -->
-                    <a href="https://www.awwwards.com" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                    <a href="#cases" class="social-link-item" data-cta="view-cases">
                         <div class="social-link-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <text x="4" y="24" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="currentColor">W.</text>
-                            </svg>
+                            <span class="social-link-label">01</span>
                         </div>
-                        <span class="social-link-text">Awwwards</span>
+                        <span class="social-link-text">Публічні кейси</span>
                     </a>
-                    
-                    <!-- Clutch -->
-                    <a href="https://clutch.co" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                    <a href="#offer" class="social-link-item">
                         <div class="social-link-icon">
-                            <span class="social-link-label">Відгуки клієнтів</span>
+                            <span class="social-link-label">02</span>
                         </div>
-                        <span class="social-link-text">Clutch</span>
+                        <span class="social-link-text">Формати співпраці</span>
                     </a>
-                    
-                    <!-- Instagram -->
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                    <a href="#process" class="social-link-item">
                         <div class="social-link-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="8" y="8" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                <circle cx="22" cy="10" r="1" fill="currentColor"/>
-                            </svg>
+                            <span class="social-link-label">03</span>
                         </div>
-                        <span class="social-link-text">Instagram</span>
+                        <span class="social-link-text">4 кроки процесу</span>
                     </a>
-                    
-                    <!-- Dribbble -->
-                    <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                    <a href="<?php echo esc_url($booking_url); ?>" target="_blank" rel="noopener noreferrer" class="social-link-item" data-cta="book-call">
                         <div class="social-link-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                <circle cx="16" cy="8" r="2" fill="currentColor"/>
-                                <circle cx="22" cy="12" r="2" fill="currentColor"/>
-                                <circle cx="20" cy="20" r="2" fill="currentColor"/>
-                                <circle cx="12" cy="22" r="2" fill="currentColor"/>
-                            </svg>
+                            <span class="social-link-label">04</span>
                         </div>
-                        <span class="social-link-text">Dribbble</span>
+                        <span class="social-link-text">Календар 30 хв</span>
                     </a>
-                    
-                    <!-- Substack -->
-                    <a href="https://substack.com" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                    <a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer" class="social-link-item" data-cta="book-call">
                         <div class="social-link-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="8" y="10" width="16" height="2" fill="currentColor"/>
-                                <rect x="8" y="14" width="12" height="2" fill="currentColor"/>
-                                <rect x="8" y="18" width="16" height="2" fill="currentColor"/>
-                                <path d="M20 14L24 18L20 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
+                            <span class="social-link-label">05</span>
                         </div>
-                        <span class="social-link-text">Substack</span>
+                        <span class="social-link-text">Telegram</span>
                     </a>
-                    
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                    <a href="https://github.com/Antongotry/gotrydev" target="_blank" rel="noopener noreferrer" class="social-link-item">
                         <div class="social-link-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="6" y="10" width="5" height="12" fill="currentColor"/>
-                                <circle cx="8.5" cy="7" r="2" fill="currentColor"/>
-                                <rect x="14" y="10" width="5" height="12" fill="currentColor"/>
-                                <path d="M14 14C14 12.5 15 11 16.5 11C18 11 19 12.5 19 14V22H21V14C21 11 19 9 16.5 9C14 9 12 11 12 14V22H14V14Z" fill="currentColor"/>
-                            </svg>
+                            <span class="social-link-label">06</span>
                         </div>
-                        <span class="social-link-text">LinkedIn</span>
+                        <span class="social-link-text">GitHub</span>
                     </a>
                 </div>
             </div>
@@ -849,7 +982,7 @@ get_header();
             </div>
             <div class="footer-links">
                 <a href="#credentials" class="footer-link">Наші нагороди</a>
-                <a href="#terms" class="footer-link">Умови використання</a>
+                <a href="#terms" class="footer-link">Умови співпраці</a>
                 <a href="#privacy" class="footer-link">Політика конфіденційності</a>
             </div>
         </div>

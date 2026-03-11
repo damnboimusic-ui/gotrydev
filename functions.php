@@ -115,6 +115,21 @@ add_filter('show_admin_bar', function($show) {
 });
 
 /**
+ * Single source of truth for primary booking link.
+ */
+function gotry_get_booking_url() {
+    $default_url = 'https://calendly.com/antongotry/30min';
+    $raw_url = get_theme_mod('gotry_booking_url', $default_url);
+    $booking_url = esc_url_raw(trim((string) $raw_url));
+
+    if (empty($booking_url) || !wp_http_validate_url($booking_url)) {
+        $booking_url = $default_url;
+    }
+
+    return apply_filters('gotry_booking_url', $booking_url);
+}
+
+/**
  * Contact form redirect helper.
  */
 function gotry_contact_redirect_with_status($status) {
