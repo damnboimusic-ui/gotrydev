@@ -1506,9 +1506,9 @@ body.home .wide-container {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    border: 1px solid rgba(74, 20, 20, 0.5);
+    border: 1px solid rgba(107, 70, 193, 0.5);
     border-radius: 999px;
-    color: #2d0a0a;
+    color: #4C1D95;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.16em;
@@ -1518,10 +1518,10 @@ body.home .wide-container {
 }
 
 .offer-cta:hover {
-    background: #2d0a0a;
-    border-color: #2d0a0a;
+    background: #6B46C1;
+    border-color: #6B46C1;
     color: #fff;
-    box-shadow: 0 4px 20px rgba(74, 20, 20, 0.25);
+    box-shadow: 0 4px 20px rgba(107, 70, 193, 0.35);
 }
 
 /* Services Section */
